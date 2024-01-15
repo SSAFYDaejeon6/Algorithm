@@ -1,3 +1,4 @@
+
 # SSAFY 11기 대전 6반 알고리즘 스터디
 
 ## 스터디 멤버
@@ -20,8 +21,32 @@
 	- 자바 이외에 언어는 다른 사람이 알아 들을 수 있게 설명
 ```
 
+## 저장소 연결
+```
+1. 현재 레포지토리(중앙저장소)를 개인 저장소로 fork (원격 저장소)
+2. fork한 저장소를 clone
+	- ex) git clone https://github.com/korno1/Algorithm_ssafy.git
+3. git remote -v 로 origin에 fork한 저장소 확인
+4. 중앙 저장소 추가 (upstream)
+	- git remote add upstream https://github.com/SSAFYDaejeon6/Algorithm.git
+```
+
 ## 커밋 방법
 ```
-1. 현재 레포지토리를 개인 저장소로 fork
-2. 
+1. 중앙 저장소의 자료를 pull (반드시 push전에 pull 먼저 해야함)
+	- git pull upstream main
+2. 로컬 저장소에서 staging 영역에 commit할 파일 올리기
+	- git add . (작업한 파일 전체 올라감)
+3. commit
+	- git commit -m "쓸말"
+4. 원격 저장소에 push
+	- git push origin main
+```
+
+## Merge 방법
+```
+1. fork한 원격 저장소에 들어가서 Pull request 클릭
+2. new pull request 클릭
+3. 원격 저장소에서 중앙 저장소의 main으로 보내는지 확인하고 merge
+	- pull을 먼저 하지 않아 중앙저장소와 원격저장소의 파일이 맞지 않으면 머지 불가
 ```
