@@ -5,7 +5,7 @@
 
 |깃허브|[korno1](https://github.com/korno1)|[alex-koko](https://github.com/alex-koko)|[djleeasi](https://github.com/djleeasi)|[hj-k66](https://github.com/hj-k66)| [stoneTiger0912](https://github.com/stoneTiger0912)|[wlsdn2749](https://github.com/wlsdn2749)|
 |:---:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|
-|백준|[korno1](https://solved.ac/profile/korno1)|[backalex](https://solved.ac/profile/backalex)|[djleeasi](https://solved.ac/profile/djleeasi)|[XXX](https://solved.ac/profile/XXX)|[XXX](https://solved.ac/profile/XXX)|[XXX](https://solved.ac/profile/XXX)
+|백준|[korno1](https://solved.ac/profile/korno1)|[backalex](https://solved.ac/profile/backalex)|[djleeasi](https://solved.ac/profile/djleeasi)|[XXX](https://solved.ac/profile/XXX)|[XXX](https://solved.ac/profile/XXX)|[wlsdn2749](https://solved.ac/profile/wlsdn2749)
 |언어|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>| <img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>
 
 ## 규칙
