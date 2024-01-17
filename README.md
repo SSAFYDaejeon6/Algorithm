@@ -3,12 +3,17 @@
 
 ## 스터디 멤버
 
-|깃허브|[korno1](https://github.com/korno1)|[alex-koko](https://github.com/alex-koko)|[djleeasi](https://github.com/djleeasi)|[hj-k66](https://github.com/hj-k66)| [stoneTiger0912](https://github.com/stoneTiger0912)|[wlsdn2749](https://github.com/wlsdn2749)|[Jungjaehee](https://github.com/Jungjaehee)|[honggyeonghyeon](https://github.com/honggyeonghyeon)|
+|깃&nbsp;허&nbsp;브|[korno1](https://github.com/korno1)|[alex&nbsp;-&nbsp;koko](https://github.com/alex-koko)|[djleeasi](https://github.com/djleeasi)|[hj&nbsp;-&nbsp;k66](https://github.com/hj-k66)| [stoneTiger0912](https://github.com/stoneTiger0912)|[wlsdn2749](https://github.com/wlsdn2749)|[Jungjaehee](https://github.com/Jungjaehee)|[honggyeonghyeon](https://github.com/honggyeonghyeon)|
 |:---:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|
-|백준|[korno1](https://solved.ac/profile/korno1)|[backalex](https://solved.ac/profile/backalex)|[djleeasi](https://solved.ac/profile/djleeasi)|[hjx06](https://solved.ac/profile/hjx06)|[dltjrqja1](https://solved.ac/profile/dltjrqja1)|[wlsdn2749](https://solved.ac/profile/wlsdn2749)|[xxx](https://solved.ac/profile/xxx)|[xxx](https://solved.ac/profile/xxx)
-|언어|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>| <img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>
+|백&nbsp;준|[korno1](https://solved.ac/profile/korno1)|[backalex](https://solved.ac/profile/backalex)|[djleeasi](https://solved.ac/profile/djleeasi)|[hjx06](https://solved.ac/profile/hjx06)|[dltjrqja1](https://solved.ac/profile/dltjrqja1)|[wlsdn2749](https://solved.ac/profile/wlsdn2749)|[xxx](https://solved.ac/profile/xxx)|[xxx](https://solved.ac/profile/xxx)
+|언&nbsp;어|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>| <img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>
 
+<br><br>
 
+## 오늘의 문제 (2024-01-17)
+| 순번 | 문제 번호 | 문제 이름  | 난이도 | 링크 | 사이트 |
+:--: | :---------: | :---------------------: | :------:  | :---------:  | :------: |
+| 00 | 25328 | 문자열 집합 조합하기 | 실버3 | [25328](https://www.acmicpc.net/problem/25328) |백준|
 
 ## 규칙
 ```
