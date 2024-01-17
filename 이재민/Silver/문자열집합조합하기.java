@@ -1,34 +1,38 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
+import java.util.stream.Collectors;
 
-public class ¹®ÀÚ¿­ÁıÇÕÁ¶ÇÕÇÏ±â {
+public class Main {
 
 	static Map<String, Integer> m = new HashMap<>();
-	static List<String> list = new LinkedList<>();
 
-	static void dfs(String s, int idx, int cnt) {
-		if (cnt == 0) {
-			String str = String.join("", list);
-//			System.out.println(str);
-			if (m.containsKey(str)) {
-				m.put(str, m.get(str) + 1);
-			} else {
-				m.put(str, 1);
+	static void bit(String s, int n) {
+		int size = s.length();
+
+		for (int i = 1; i < (1 << size); i++) { // i << n => 2^n
+			if (Integer.bitCount(i) == n) { // bitì—ì„œ 1 ê°œìˆ˜
+				String str = "";
+				for (int j = 0; j < size; j++) {
+					if ((i & (1 << j)) != 0) {
+						str += s.charAt(j);
+					}
+				}
+				if (!str.isEmpty()) {
+					if (m.containsKey(str)) {
+						m.put(str, m.get(str) + 1);
+					} else {
+						m.put(str, 1);
+					}
+				}
 			}
-			return;
-		}
-
-		for (int i = idx; i < s.length(); i++) {
-			list.add(Character.toString(s.charAt(i)));
-			dfs(s, i + 1, cnt - 1);
-			list.remove(list.size() - 1);
 		}
 	}
 
@@ -42,28 +46,25 @@ public class ¹®ÀÚ¿­ÁıÇÕÁ¶ÇÕÇÏ±â {
 		st = new StringTokenizer(br.readLine());
 		int n = Integer.parseInt(st.nextToken());
 
-		dfs(x, 0, n);
-		list.clear();
-		dfs(y, 0, n);
-		list.clear();
-		dfs(z, 0, n);
-		list.clear();
-
-		List<String> res = new LinkedList<>();
+		bit(x, n);
+		bit(y, n);
+		bit(z, n);
+		List<String> res = new LinkedList<String>();
 		m.forEach((key, value) -> {
-			if (value >= 2)
+			if (value >= 2) {
 				res.add(key);
+			}
 		});
 
-		if (res.size() == 0) {
+		if (res.size() == 0)
 			System.out.println(-1);
-		} else {
+
+		else {
 			res.sort(Comparator.naturalOrder());
 
-			for (String output : res) {
-				System.out.println(output);
-			}
+			res.forEach((str) -> {
+				System.out.println(str);
+			});
 		}
-
 	}
 }
