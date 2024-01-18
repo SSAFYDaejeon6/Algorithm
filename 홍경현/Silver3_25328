@@ -1,0 +1,65 @@
+import java.util.*;
+
+public class Main {
+	static HashMap<String, Integer> map = new HashMap<>();
+	
+	public static void comb(char[] arr, boolean[] v, int n, int r) {
+		if(r==0) {
+			combList(arr, v);
+			return;
+		}
+		if(n == arr.length) {
+			return;
+		}else {
+			v[n] = true;
+			comb(arr,v,n+1,r-1);
+			
+			v[n] = false;
+			comb(arr,v,n+1,r);
+		}
+	}
+	
+	public static void combList(char[] arr, boolean[] v) {
+		String str1 = "";
+		for(int i=0; i<arr.length; i++) {
+			if (v[i]) {
+				str1 += arr[i];
+			}
+		}
+		String key = str1.toString();
+		map.put(key, map.getOrDefault(key, 0)+1);
+	}
+	
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		String X = s.next();
+		String Y = s.next();
+		String Z = s.next();
+		
+		char[]x = X.toCharArray();
+		char[]y = Y.toCharArray();
+		char[]z = Z.toCharArray();
+
+		int k = s.nextInt();
+		
+		comb(x, new boolean[x.length], 0, k);
+		comb(y, new boolean[y.length], 0, k);
+		comb(z, new boolean[z.length], 0, k);
+		
+		ArrayList<String> list = new ArrayList<>();
+		for(String key : map.keySet()) {
+			if(map.get(key)>=2) {
+				list.add(key);
+			}
+		}
+		
+		if(list.isEmpty()) {
+			System.out.println(-1);
+		}else {
+			Collections.sort(list);
+			for(String st:list) {
+				System.out.println(st);
+			}
+		}
+	}
+}
