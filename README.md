@@ -3,10 +3,17 @@
 
 ## 스터디 멤버
 
-|깃허브|[korno1](https://github.com/korno1)|[alex-koko](https://github.com/alex-koko)|[djleeasi](https://github.com/djleeasi)|[hj-k66](https://github.com/hj-k66)| [stoneTiger0912](https://github.com/stoneTiger0912)|[wlsdn2749](https://github.com/wlsdn2749)|
-|:---:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|
-|백준|[korno1](https://solved.ac/profile/korno1)|[backalex](https://solved.ac/profile/backalex)|[djleeasi](https://solved.ac/profile/djleeasi)|[XXX](https://solved.ac/profile/XXX)|[XXX](https://solved.ac/profile/XXX)|[XXX](https://solved.ac/profile/XXX)
-|언어|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>| <img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>
+|깃&nbsp;허&nbsp;브|[korno1](https://github.com/korno1)|[alex&nbsp;-&nbsp;koko](https://github.com/alex-koko)|[djleeasi](https://github.com/djleeasi)|[hj&nbsp;-&nbsp;k66](https://github.com/hj-k66)| [stoneTiger0912](https://github.com/stoneTiger0912)|[wlsdn2749](https://github.com/wlsdn2749)|[Jungjaehee](https://github.com/Jungjaehee)|[honggyeonghyeon](https://github.com/honggyeonghyeon)|
+|:---:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|
+|백&nbsp;준|[korno1](https://solved.ac/profile/korno1)|[backalex](https://solved.ac/profile/backalex)|[djleeasi](https://solved.ac/profile/djleeasi)|[hjx06](https://solved.ac/profile/hjx06)|[dltjrqja1](https://solved.ac/profile/dltjrqja1)|[wlsdn2749](https://solved.ac/profile/wlsdn2749)|[xxx](https://solved.ac/profile/xxx)|[xxx](https://solved.ac/profile/xxx)
+|언&nbsp;어|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>| <img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>
+
+<br><br>
+
+## 오늘의 문제 (2024-01-17)
+| 순번 | 문제 번호 | 문제 이름  | 난이도 | 링크 | 사이트 |
+:--: | :---------: | :---------------------: | :------:  | :---------:  | :------: |
+| 00 | 25328 | 문자열 집합 조합하기 | 실버3 | [25328](https://www.acmicpc.net/problem/25328) |백준|
 
 ## 규칙
 ```
@@ -20,6 +27,13 @@
 7. 언어는 무조건 자바로 풀고 다른 언어는 개인적으로 풀기
 ```
 
+## 깃허브 관련 주의할 점
+```
+1. 개인 fork한 저장소에서 브랜치는 자유롭게 만들어도 되지만 pull-request시에는 중앙 저장소와 맞아야 함
+	- 하나의 브랜치로 쓰는것을 추천
+2. 중앙 저장소는 반드시 main 브랜치만 사용하고 master 브랜치나 다른 브랜치 생성 X
+3. (매우 중요) 깃허브 commit이나 merge가 안될 시 혼자 해결하려 하지 말고 제발 공유할 것
+```
 ## 저장소 연결
 ```
 1. 현재 레포지토리(중앙저장소)를 개인 저장소로 fork (원격 저장소)
