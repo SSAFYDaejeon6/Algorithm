@@ -1,8 +1,9 @@
+package 정재희.BaekJoon;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.HashMap;
 
-public class 문자열부분집합 {
+public class N25328{
 	static HashMap<String, Integer> strSet = new HashMap<String, Integer>();
 	static int cnt = 0;
 	public static void main(String[] args) {
