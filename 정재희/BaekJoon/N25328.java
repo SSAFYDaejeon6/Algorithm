@@ -1,6 +1,9 @@
+package Á¤ÀçÈñ.BaekJoon;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.HashMap;
+
+
 
 public class N25328 {
 	static HashMap<String, Integer> strSet = new HashMap<String, Integer>();
