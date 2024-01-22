@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		int [][]work = new int[n][2]; //0: T(기간) 1: P(금액)
+		for(int i=0; i<n; i++) {
+			work[i][0] = s.nextInt();
+			work[i][1] = s.nextInt();
+		}
+		int []dp = new int[n+1]; //N일에 얻을 수 있는 최대 수익
+
+		for(int i=0; i<n; i++) {
+			if(i+work[i][0] <= n) {//날짜가 범위를 초과하지 않는 경우
+				/* dp[i+work[i][0]]: i일에 상담했을 경우 끝나는 날
+				 * dp[i]+work[i][1]: i일까지 계산된 수익 + i일 상담 수익
+				 * 더 큰 값을 dp[i+work[i][0]]에 넣음 
+				 * << i날에 상담을 한 게 이득인지, 건너 뛰는 게 이득인지 판단
+				 */
+				dp[i+work[i][0]] = Math.max(dp[i+work[i][0]], dp[i]+work[i][1]);
+			}
+			//다음날 계산 수익 vs 오늘날 계산 수익을 비교하여 더 큰 값을 다음날 최대 수익에 저장
+			dp[i+1] = Math.max(dp[i+1], dp[i]); 
+		}
+		
+		System.out.println(dp[n]);
+	}
+}
