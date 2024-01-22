@@ -1,13 +1,11 @@
-package Á¤ÀçÈñ.BaekJoon;
+package ÃÂ¤Ã€Ã§ÃˆÃ±.BaekJoon;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.HashMap;
 
-<<<<<<< HEAD
-public class N25328{
-=======
+
+
 public class N25328 {
->>>>>>> 2ad0bdd6b848773ab8647f16d9cbeab28c62c63e
 	static HashMap<String, Integer> strSet = new HashMap<String, Integer>();
 	static int cnt = 0;
 	public static void main(String[] args) {
