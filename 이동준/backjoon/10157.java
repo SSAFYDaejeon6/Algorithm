@@ -3,6 +3,18 @@ import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
+	/*
+	 * 주어진 문제의 예시 6X7 공연장의 경우 가장 바깥 둘레부터 한 겹씩 총 3겹(레이어)의 직사각형으로 생각할 수 있다.
+	 * 각 직사각형은 매 겹마다 둘레가 8씩 줄어든다
+	 * 좌석번호가 주어졌을 때, 해당 좌석번호가 "속하는 레이어" x 에 대해 좌석번호의 부등식을 세울 수 있다
+	 * 해당 부등식의 좌변을 "레이어"에 대한 이차방정식으로 정리한뒤 풀면(solvePolynomial) 
+	 * 원하는 티켓 번호가 주어졌을 때, 해당 티켓이 속하는 "레이어" 번호를 구할 수 있다.
+	 * 각 레이어의 시작 좌석은 1번 좌석이 (1, 1) 이라고 할 때 레이어 n의 시작 좌석은 (n, n)이다
+	 * 등차수열의 합(getSum)을 이용하면 레이어 n의 마지막 좌석의 번호 k를 구할 수 있다.
+	 * k - 해당 레이어의 둘레 + 1 하면 레이어 n의 첫 좌석의 번호를 구할 수 있다. 이때 이 좌석의 좌표는 (n, n) 이다.
+	 * 이제, 원하는 티켓 번호 - 레이어 n의 첫 좌석의 번호 만큼 시계방향으로 전진하면 원하는 티켓 번호의 좌표를 구할 수 있다.
+	 */
+
 public class Main{
 	private static final int[][] dxy = {
 			{0, 1},
@@ -41,7 +53,7 @@ public class Main{
 		
 		int[] CurrentXY = { RC[1] - 2 * (layer - 1), RC[0] - 2 * (layer - 1) };
 		int cursorNumber = getSum(outer, -8, layer) - getOuter(CurrentXY[0], CurrentXY[1]) + 1 ;
-		//이제 시계방향으로 돌면 된다
+		//이제 시계방향으로 돌면 된다. 최대 한바퀴만 돌면 됨
 		int toGo = ticketNumber - cursorNumber;
 		int direction = 0;
 		int[] internalCursor = {1, 1};
@@ -59,12 +71,7 @@ public class Main{
 		
 		System.out.println(finalCursor[0] + " " + finalCursor[1]);
 	}
-	/*
-	 * 주어진 문제의 예시 6X7 공연장의 경우 가장 바깥 둘레부터 한 겹씩 총 3겹의 직사각형으로 생각할 수 있다.
-	 * 각 직사각형은 매 겹마다 둘레가 8씩 줄어든다
-	 * 좌석번호가 주어졌을 때, 해당 좌석번호가 "속하는 겹" x 에 대해 좌석번호의 부등식을 세울 수 있다
-	 * 해당 부등식의 좌변을 "겹"에 대한 이차방정식으로 정리한뒤 풀면 "겹" 번호를 구할 수 있다.
-	 */
+
 	public static int solvePolynomial(int a, int b, int c) {
 		//take smallest natural root only
 		//ix^2 + (2s-i)x - 2c = 0
