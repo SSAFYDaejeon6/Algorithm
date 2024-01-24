@@ -1,0 +1,72 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Silver2_2477_1 {
+	public static void main(String[] args) throws IOException {
+		/* 큰 사각형과 작은 사각형으로 만들어서 더하기
+		 * 1.가장 긴 변을 기준으로 좌우의 길이 비교
+		 * 2.좌우를 비교하여 짧은 변을 가장 긴 변과 곱함
+		 * 3.|좌-우|와 좌우 중 긴 변과 인접한 변(!= 가장 긴 변)을 곱함
+		 */
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = null;
+		int k = Integer.parseInt(br.readLine());//참외 개수
+		/* 0: 방향 1: 길이
+		 * 방향: 1-동, 2-서, 3-남, 4-북
+		 */
+		int[][] melon = new int[6][2];
+		int max[] = new int[3]; //가장 긴 변의 정보
+		
+		for(int i=0; i<6; i++) {
+			st = new StringTokenizer(br.readLine());
+			melon[i][0] = Integer.parseInt(st.nextToken());
+			melon[i][1] = Integer.parseInt(st.nextToken());
+			if(max[1]<melon[i][1]) {
+				max[0] = i; //인덱스
+				max[1] = melon[i][1]; //길이
+				max[2] = melon[i][0]; //방향
+			}
+		}
+		
+		int len1[] = new int[3];
+		int len2[] = new int[3];
+		// 가장 긴 변의 오른쪽 len1, 왼쪽 len2
+		// 0: 인덱스 1: 길이 2: 방향
+		len1[0] = (max[0]-1)>=0?max[0]-1:5; 
+		len1[1] = melon[len1[0]][1];
+		len1[2] = melon[len1[0]][0];
+		len2[0] = (max[0]+1)%6;
+		len2[1] = melon[len2[0]][1];
+		len2[2] = melon[len2[0]][0];
+		
+		int area = 0; //면적
+		int idx=0; //max(len1, len1)와 인접한 변(!= 가장 긴 변)의 인덱스
+		int len=0; //max(len1, len1)와 인접한 변(!= 가장 긴 변)의 길이
+		
+		if(len1[1]>len2[1]) { 
+			area += len2[1] * max[1];
+			//모든 경우의 수 계산
+			if((len1[2]==3&&max[2]==2)||(len1[2]==4&&max[2]==1)
+			|| (len1[2]==1&&max[2]==3)||(len1[2]==2&&max[2]==4)) {
+				idx = (len1[0]+1)%6; 
+			} else {
+				idx = (len1[0]-1)>=0?len1[0]-1:5;
+			}
+			len = melon[idx][1];
+			area += (len1[1]-len2[1]) * len;
+		} else {
+			area += len1[1] * max[1];
+			if((len2[2]==3&&max[2]==2)||(len2[2]==4&&max[2]==1)
+			|| (len2[2]==1&&max[2]==3)||(len2[2]==2&&max[2]==4)) {
+				idx = (len2[0]+1)%6;
+			} else {
+				idx = (len2[0]-1)>=0?len2[0]-1:5;
+			}
+			len = melon[idx][1];
+			area += (len2[1]-len1[1]) * len;
+		}
+		System.out.println(area*k);
+	}
+}

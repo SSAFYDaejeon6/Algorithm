@@ -1,0 +1,51 @@
+package Java_algorithm.study;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Silver2_2477_2 {
+
+	public static void main(String[] args) throws IOException {
+		/* 
+		 * 전체 사각형에서 작은 사각형 빼기
+		 */
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = null;
+		
+		int n = Integer.parseInt(br.readLine());
+		int[] vec = new int[6]; //방향
+		int[] len = new int[6]; //길이
+		int[] ewsn = new int[4]; //동서남북의 개수
+		int big = 1; //전체 사각형의 넓이
+		int small = 1; //작은 사각형의 넓이
+		
+		for(int i=0; i<6; i++) {
+			st = new StringTokenizer(br.readLine());
+			vec[i]= Integer.parseInt(st.nextToken());
+			len[i] = Integer.parseInt(st.nextToken());
+			ewsn[vec[i]-1]++;
+		}
+		
+		for(int i=0; i<6; i++) {
+			/* 
+			 * 방향이 한 번 나왔다면 big에 곱해줌
+			 * 두 번 나왔다면, i와 i+2의 방향이 같을 때
+			 * 사이에 있는 i+1의 길이를 small에 곱해줌
+			 */
+			if(ewsn[vec[i]-1] == 1) {
+				big *= len[i];
+				continue;
+			}
+			
+			if(vec[i] == vec[(i+2)%6]) {
+				small *= len[(i+1)%6];
+			}
+		}
+
+		int result = (big - small) * n;
+		System.out.println(result);
+	}
+
+}
