@@ -47,6 +47,5 @@ public class BJ_S3_18429 {
         }
         Exercise(500, 0);
         System.out.println(count);
-
     }
 }
