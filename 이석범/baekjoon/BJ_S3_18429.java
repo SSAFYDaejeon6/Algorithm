@@ -45,7 +45,6 @@ public class BJ_S3_18429 {
         for(int i=0; i< n; i++) {
             weightList[i] = Integer.parseInt(st.nextToken());
         }
-        
         Exercise(500, 0);
         System.out.println(count);
 
