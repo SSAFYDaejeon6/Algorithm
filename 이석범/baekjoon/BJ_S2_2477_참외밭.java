@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class BJ_S2_2477 {
+public class BJ_S2_2477_참외밭 {
 
 
     public static void main(String[] args) throws IOException {

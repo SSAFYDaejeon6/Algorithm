@@ -13,7 +13,7 @@ class Node {
 }
 
 
-public class BJ_G5_6593 {
+public class BJ_G5_6593_상범빌딩 {
 
     //시작과 끝 노드
     static Node start;

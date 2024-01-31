@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class BJ_S3_25328 {
+public class BJ_S3_25328_문자열_집합_조합하기 {
 
     static boolean[][] visited = new boolean[3][];
     static String[] strList = new String[3];
