@@ -5,16 +5,17 @@ import java.util.StringTokenizer;
 
 /*
  * n의 범위가 크지 않아 재귀를 이용한 완전탐색
- * 예제 3번의 input은 5! / 2!로 60가지의 경우의 수가 나옴
- * 순서에 따라 서로 다르다고 판단되니 순열이고 중복을 허용하기 때문에 중복 순열이라고 생각하면 좋음
+ * 같은 것이 있는 순열로 순열에서 중복되는 것을 팩토리얼로 나눠주면 됨
+ * 예제 3번의 input은 11234 ->  5! / 2!로 60가지의 경우의 수가 나옴
  */
 
 public class 연산자끼워넣기 {
 
 	static int[] arr;
 	static int[] oper;
-	static int maxRes = Integer.MIN_VALUE; // 0으로 초기화하면 안됨
-	static int minRes = Integer.MAX_VALUE; // 0으로 초기화하면 안됨
+	// 끝까지 0보다 작거나 큰값이 나올수도 있기 때문에 int형에서 제일 큰 수로 초기화
+	static int maxRes = Integer.MIN_VALUE; 
+	static int minRes = Integer.MAX_VALUE; 
 	static int n;
 	static int c;
 	
@@ -30,7 +31,7 @@ public class 연산자끼워넣기 {
 		
 		
 		// 재귀를 통한 연산 수행
-		// 중복순열과 유사한 로직
+		// 순열과 유사한 로직
 		for(int i=0; i<4; i++) {
 			if(oper[i] > 0) {
 				oper[i]--;
@@ -69,6 +70,7 @@ public class 연산자끼워넣기 {
 		for(int i=0; i<4; i++) {
 			oper[i] = Integer.parseInt(st.nextToken());
 		}
+		
 		// res에 arr[0]를 넘겨 주었으니 인덱스도 1부터 시작
 		operation(1, arr[0], 0);
 		
