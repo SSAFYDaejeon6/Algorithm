@@ -1,11 +1,9 @@
-package test;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class BJ_S1_9465 {
+public class BJ_S1_9465_스티커 {
 
 	static int[][] dp;
 	static int[][] graph;
