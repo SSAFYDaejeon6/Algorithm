@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class BJ_S3_18429 {
+public class BJ_S3_18429_근손실 {
 
     //메서드에서도 사용해야 하기 때문에 변수 설정
     static int[] weightList;
