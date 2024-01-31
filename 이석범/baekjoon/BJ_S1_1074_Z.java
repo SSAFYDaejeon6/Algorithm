@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class BJ_S1_1074 {
+public class BJ_S1_1074_Z {
 	
 	static int func(int n, int r, int c) {
 		
