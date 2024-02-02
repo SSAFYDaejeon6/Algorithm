@@ -1,7 +1,7 @@
 import java.util.*;
 
 //33100kb 404ms
-public class BJ_S2_DFS와BFS_이석범 {
+public class BJ_S2_1260_DFS와BFS_이석범 {
 
     //DFS, BFS별로 방문 배열 만들기
 //    static boolean[] BFSVisited;
