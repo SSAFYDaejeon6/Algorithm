@@ -1,0 +1,87 @@
+package Silver;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+/* 14700KB 328ms
+ * 문제 해석
+	N개의 수로 이루어진 수열 A1, A2, ..., AN
+	수와 수 사이에 끼워넣을 수 있는 N-1개의 연산자
+	연산자 우선 순위를 무시하고 연산
+	
+	입력
+	2≤ N ≤ 11
+	A1, A2, ..., AN (1≤A≤100)
+	덧셈(+) 뺄셈(-) 곱셈(x) 나눗셈(%)의 개수
+	
+	출력
+	최댓값
+	최솟값
+ */
+
+public class Main_S1_14888_연산자끼워넣기 {
+	static int N;
+	static int A[];
+	static char ope[]; //연산자 배열
+	static int min = Integer.MAX_VALUE;
+	static int max = Integer.MIN_VALUE;
+	static boolean isUsed[];
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = null;
+		N = Integer.parseInt(br.readLine());
+		st = new StringTokenizer(br.readLine());
+		A = new int[N];
+		ope = new char[N-1];
+		isUsed = new boolean[N-1];
+		for(int i=0; i<N; i++) {
+			A[i] = Integer.parseInt(st.nextToken());
+		}
+		st = new StringTokenizer(br.readLine());
+		int [] oper = new int[4];
+		int k = 0;
+		char []o = {'+', '-', '*', '/'};
+		for(int i=0; i<4; i++) {
+			oper[i] = Integer.parseInt(st.nextToken());
+			for(int j=0; j<oper[i]; j++) {
+				ope[k] = o[i];
+				k++;
+			}
+		}
+		operator(0, A[0]);
+		System.out.println(max);
+		System.out.println(min);
+		
+	}
+
+	private static void operator(int idx, int sum) {
+		if(idx==N-1) {
+			min = Math.min(min, sum);
+			max = Math.max(max, sum);
+			return;
+		}
+		
+		for(int i=0; i<N-1; i++) {
+			if(isUsed[i]) continue;
+			isUsed[i] = true;
+			switch(ope[i]) {
+			case '+':
+				operator(idx+1, sum+A[idx+1]);
+				break;
+			case '-':
+				operator(idx+1, sum-A[idx+1]);
+				break;
+			case '*':
+				operator(idx+1, sum*A[idx+1]);
+				break;
+			case '/':
+				operator(idx+1, sum/A[idx+1]);
+				break;
+			}
+			isUsed[i] = false;
+		}
+	}
+}
