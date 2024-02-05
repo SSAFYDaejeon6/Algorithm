@@ -5,7 +5,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-/*
+/* 20836kb 200ms
  * 문제 해석
 	그래프를 DFS로 탐색한 결과와 BFS로 탐색한 결과 출력 프로그램
 	방문할 수 있는 정점이 여러 개 → 작은 번호 부터
