@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Main{
+public class B1260{
     
     static boolean[] visited;
     static List<List<Integer>> arr;
