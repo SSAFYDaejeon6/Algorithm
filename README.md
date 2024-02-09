@@ -5,15 +5,16 @@
 
 |깃&nbsp;허&nbsp;브|[korno1](https://github.com/korno1)|[alex&nbsp;-&nbsp;koko](https://github.com/alex-koko)|[djleeasi](https://github.com/djleeasi)|[hj&nbsp;-&nbsp;k66](https://github.com/hj-k66)| [stoneTiger0912](https://github.com/stoneTiger0912)|[wlsdn2749](https://github.com/wlsdn2749)|[Jungjaehee](https://github.com/Jungjaehee)|[honggyeonghyeon](https://github.com/honggyeonghyeon)|
 |:---:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|
-|백&nbsp;준|[korno1](https://solved.ac/profile/korno1)|[backalex](https://solved.ac/profile/backalex)|[djleeasi](https://solved.ac/profile/djleeasi)|[hjx06](https://solved.ac/profile/hjx06)|[dltjrqja1](https://solved.ac/profile/dltjrqja1)|[wlsdn2749](https://solved.ac/profile/wlsdn2749)|[xxx](https://solved.ac/profile/xxx)|[xxx](https://solved.ac/profile/xxx)
+|백&nbsp;준|[korno1](https://solved.ac/profile/korno1)|[backalex](https://solved.ac/profile/backalex)|[djleeasi](https://solved.ac/profile/djleeasi)|[hjx06](https://solved.ac/profile/hjx06)|[dltjrqja1](https://solved.ac/profile/dltjrqja1)|[wlsdn2749](https://solved.ac/profile/wlsdn2749)|[xxx](https://solved.ac/profile/xxx)|[hyeon21owo](https://solved.ac/profile/hyeon21owo)
 |언&nbsp;어|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>| <img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>
 
 <br><br>
 
-## 오늘의 문제 (2024-01-24)
+## 오늘의 문제 (2024-02-02)
 | 순번 | 문제 번호 | 문제 이름  | 난이도 | 링크 | 사이트 |
 :--: | :---------: | :---------------------: | :------:  | :---------:  | :------: |
-| 00 | 10157 | 자리배정 | 실버4 | [10157](https://www.acmicpc.net/problem/10157) |백준|
+| 00 | 1260 | DFS와 BFS | 실버2 | [1260](https://www.acmicpc.net/problem/1260) |백준|
+| 01 | 1010 | 다리 놓기 | 실버5 | [1010](https://www.acmicpc.net/problem/1010) |백준|
 
 ## 규칙
 ```

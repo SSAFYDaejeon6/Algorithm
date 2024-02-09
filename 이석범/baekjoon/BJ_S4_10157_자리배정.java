@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class BJ_S4_10157 {
+public class BJ_S4_10157_자리배정 {
     public static void main(String[] args) throws IOException {
         //입력값 입력
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
