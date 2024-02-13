@@ -23,6 +23,7 @@ public class BJ_G4_1715_카드정렬하기 {
             queue.offer(num1+num2);
         }
 
+
         System.out.println(cnt);
     }
 }
