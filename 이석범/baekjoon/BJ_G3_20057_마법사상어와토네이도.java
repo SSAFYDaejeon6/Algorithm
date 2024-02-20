@@ -21,7 +21,7 @@ import java.util.StringTokenizer;
  *
  * 41672kb 624ms -> dx를 따로 생성해 모래가 날리는 비율을 반복문으로 처리할 경우 쉽게 되는 것 같음
  * 조심해야할 점은 남은 모래는 보낸 모래의 나머지이다
- * 
+ *
  */
 public class BJ_G3_20057_마법사상어와토네이도 {
     static int[][] graph;
@@ -30,7 +30,7 @@ public class BJ_G3_20057_마법사상어와토네이도 {
 
     static int[] dr = {0, 1, 0, -1};
     static int[] dc = {-1, 0, 1, 0};
-    
+
     static int result;
 
     //왼  아  오 위
@@ -47,13 +47,13 @@ public class BJ_G3_20057_마법사상어와토네이도 {
 //                    System.out.println(count);
                     sendSand(nr, nc, dir);
                     graph[nr][nc] = 0;
-                    
+
                     int tmp = result;
 //                    for(int a=0; a<n;a++) {
 //                    	tmp -= Arrays.stream(graph[a]).sum();
 //                    }
 //                    System.out.println(tmp);
-                    
+
                     r = nr;
                     c = nc;
                     if (r == 0 && c == 0) return;
@@ -116,7 +116,7 @@ public class BJ_G3_20057_마법사상어와토네이도 {
                 //5% 비율
                 check(r-2, c, (int)(sand * 0.05));
                 //check(r-1, c, (int)(sand * 0.55));
-                
+
                 div =  ((int)(sand * 0.01) * 2) + ((int)(sand * 0.02) * 2) + ((int)(sand * 0.07) * 2) + ((int)(sand * 0.1) * 2) + ((int)(sand * 0.05));
 
                 //나머지
@@ -145,7 +145,7 @@ public class BJ_G3_20057_마법사상어와토네이도 {
 
                 //55% 비율
                 //check(r+1, c, (int)(sand * 0.55));
-                
+
                 div = ((int)(sand * 0.01) * 2) + ((int)(sand * 0.02) * 2) + ((int)(sand * 0.07) * 2) + ((int)(sand * 0.1) * 2) + ((int)(sand * 0.05));
 
 
@@ -175,7 +175,7 @@ public class BJ_G3_20057_마법사상어와토네이도 {
 
                 //55% 비율
 //                check(r, c-1, (int)(sand * 0.55));
-                
+
                 div = ((int)(sand * 0.01) * 2) + ((int)(sand * 0.02) * 2) + ((int)(sand * 0.07) * 2) + ((int)(sand * 0.1) * 2) + ((int)(sand * 0.05));
 
 //                System.out.println(sand+"나머지");
