@@ -10,11 +10,11 @@
 
 <br><br>
 
-## 오늘의 문제 (2024-02-19)
+## 오늘의 문제 (2024-02-23)
 
 | 순번 | 문제 번호 | 문제 이름  | 난이도 | 링크 | 사이트 |
 :--: | :---------: | :---------------------: | :------:  | :---------:  | :------: |
-| 00 | 11403 | 경로 찾기 | 실버1 | [11403](https://www.acmicpc.net/problem/11403) |백준|
+| 00 | 5658 | 보물상자 비밀번호 | 모의SW | [5658](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRUN9KfZ8DFAUo) |SWEA|
 
 
 ## 규칙
