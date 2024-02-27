@@ -10,11 +10,11 @@
 
 <br><br>
 
-## 오늘의 문제 (2024-02-23)
+## 오늘의 문제 (2024-02-26)
 
 | 순번 | 문제 번호 | 문제 이름  | 난이도 | 링크 | 사이트 |
 :--: | :---------: | :---------------------: | :------:  | :---------:  | :------: |
-| 00 | 5658 | 보물상자 비밀번호 | 모의SW | [5658](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRUN9KfZ8DFAUo) |SWEA|
+| 00 | 14499 | 주사위 굴리기 | G4 | [14499](https://www.acmicpc.net/problem/14499) |백준|
 
 
 ## 규칙
