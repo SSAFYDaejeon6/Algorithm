@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-/* 23,788 kb 133 ms
+/* 26,232 kb 134 ms
  * 문제해석
 	N명의 사람
 	1번~N번 사람까지 번호
@@ -62,13 +62,10 @@ public class Solution_7465_창용마을무리의개수 {
 		Queue<Integer> q = new ArrayDeque<>();
 		boolean visit[] = new boolean[N+1];
 		
-		while(!check(visit)) {
-			for(int i=1; i<=N; i++) {
-				if(visit[i]) continue;
-				q.add(i);
-				visit[i] = true;
-				break;
-			}
+		for(int i=1; i<=N; i++) {
+			if(visit[i]) continue;
+			q.add(i);
+			visit[i] = true;
 			
 			while(!q.isEmpty()) {
 				int n = q.poll();
@@ -81,13 +78,4 @@ public class Solution_7465_창용마을무리의개수 {
 			result++;
 		}
 	}
-
-	//모든 요소를 방문했는지 체크
-	private static boolean check(boolean[] visit) {
-		for(int i=1; i<=N; i++) {
-			if(!visit[i]) return false;
-		}
-		return true;
-	}
-
 }
