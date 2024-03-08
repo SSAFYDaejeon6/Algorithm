@@ -1,10 +1,11 @@
+package BaekJoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.ArrayList;
 
-public class N18429 {
+public class BOJ_N18429_ê·¼ì†ì‹¤ {
 	static int cnt = 0;
 	static List<Integer> obtain;
 	public static void main(String[] args) {
@@ -26,13 +27,13 @@ public class N18429 {
 		for(int i=0;i<N;i++) {
 			obtain.add(Integer.valueOf(str[i]));
 		}
-		// Àç±Í ÀÌ¿ë -> °æ¿ìÀÇ ¼ö Ã£±â
+		// ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ -> ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ã£ï¿½ï¿½
 		for(int i=0;i<N;i++) {
 			if(obtain.get(i) >= k) {
 				int[] visited = new int[N];
-				visited[i] = 1;   // ¹æ¹®Çß´ø ¼ö Ç¥±â
-				planning(k, 1, obtain.get(i), visited);  //¹æ¹®ÇÑ °÷ ´ÙÀ½À¸·Î ¹æ¹®ÇÒ °÷ Àç±Í Å½»ö
-				visited[i] = 0;  // ¹æ¹®Çß´ø °÷¿¡´ëÇØ ´Ù½Ã ¹æ¹®ÇÏÁö ¾ÊÀº »óÅÂ·Î º¯°æ
+				visited[i] = 1;   // ï¿½æ¹®ï¿½ß´ï¿½ ï¿½ï¿½ Ç¥ï¿½ï¿½
+				planning(k, 1, obtain.get(i), visited);  //ï¿½æ¹®ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½æ¹®ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ Å½ï¿½ï¿½
+				visited[i] = 0;  // ï¿½æ¹®ï¿½ß´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½æ¹®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½
 			}
 		}
 		System.out.println(cnt);

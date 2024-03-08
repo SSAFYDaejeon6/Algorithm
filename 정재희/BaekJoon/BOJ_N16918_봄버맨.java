@@ -1,3 +1,4 @@
+package BaekJoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,7 +8,7 @@ import java.util.StringTokenizer;
 /*
  * 시간: 220ms | 메모리 : 60,188KB
  */
-public class N16918_봄버맨 {
+public class BOJ_N16918_봄버맨 {
 	static int[][] deltas = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
 	static Queue<int[]> queue = new ArrayDeque<>();
 	static int N;

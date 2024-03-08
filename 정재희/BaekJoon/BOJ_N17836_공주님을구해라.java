@@ -1,3 +1,4 @@
+package BaekJoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,7 +14,7 @@ import java.util.StringTokenizer;
  *  3. 무기 얻기 전과 얻은 후 따로 방문 관리 하기
  *  
  */
-public class N17836_공주님을구해라 {
+public class BOJ_N17836_공주님을구해라 {
 	static class Node{
 		int r;
 		int c;

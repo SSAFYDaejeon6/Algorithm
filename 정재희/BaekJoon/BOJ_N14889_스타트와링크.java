@@ -1,10 +1,11 @@
+package BaekJoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class N14889_스타트와링크 {
+public class BOJ_N14889_스타트와링크 {
 	/**
 	 * N개 중 N/2 개 조합을 뽑은 뒤 합 계산 수행
 	 * 시간: 208ms | 메모리: 14,476KB

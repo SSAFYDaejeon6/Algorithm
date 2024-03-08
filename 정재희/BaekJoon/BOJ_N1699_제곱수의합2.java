@@ -1,18 +1,19 @@
+package BaekJoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- *  ±¸±Û Ç®ÀÌ¸¦ Âü°íÇÏ¿© °øºÎÇÏ¿´½À´Ï´Ù.
+ *  êµ¬ê¸€ í’€ì´ë¥¼ ì°¸ê³ í•˜ì—¬ ê³µë¶€í•˜ì˜€ìŠµë‹ˆë‹¤.
  *  
  * i\n  0   1   2   3   4   5   6   7   8   9   10   11
  * 1^2  0   1   2   3   4   5   6   7   8   9   10   11
- * 2^2  // //  //  //   1   2   3   4   2   3   4    5   -> i^2ºÎÅÍ °ª ÀÔ·Â, min((i-1, n), (i-1, n-4)+1)
+ * 2^2  // //  //  //   1   2   3   4   2   3   4    5   -> i^2ë¶€í„° ê°’ ì…ë ¥, min((i-1, n), (i-1, n-4)+1)
  * 3^2  // //  //  //  //  //  //  //  //   1   2    3  
  * 
- *  ½Ã°£: 144ms  |  ¸Ş¸ğ¸®: 12,644KB
+ *  ì‹œê°„: 144ms  |  ë©”ëª¨ë¦¬: 12,644KB
  */
-public class N1699_Á¦°ö¼öÀÇÇÕ2 {
+public class BOJ_N1699_ì œê³±ìˆ˜ì˜í•©2 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
@@ -21,12 +22,12 @@ public class N1699_Á¦°ö¼öÀÇÇÕ2 {
 		
 		int[] dp = new int[N+1];
 		
-		for (int i = 0; i < N+1; i++) {  // 1ÀÇ Á¦°öÀ¸·Î Ç¥ÇöµÇ´Â Á¦°öÇ×ÀÇ °³¼ö, ÃÊ±â°ªÀ¸·Î ÀúÀå
+		for (int i = 0; i < N+1; i++) {  // 1ì˜ ì œê³±ìœ¼ë¡œ í‘œí˜„ë˜ëŠ” ì œê³±í•­ì˜ ê°œìˆ˜, ì´ˆê¸°ê°’ìœ¼ë¡œ ì €ì¥
 			dp[i] = i;
 		}
 		
 		for (int i = 2; i < M+1; i++) {
-			int r = (int) Math.pow(i, 2);  // iÀÇ Á¦°öÀÌÈÄºÎÅÍ dp¹è¿­ ¾÷µ¥ÀÌÆ® ¼öÇà
+			int r = (int) Math.pow(i, 2);  // iì˜ ì œê³±ì´í›„ë¶€í„° dpë°°ì—´ ì—…ë°ì´íŠ¸ ìˆ˜í–‰
 			for (int j = r; j < N+1; j++) {
 				dp[j] = Math.min(dp[j],  dp[j-r]+1);
 			}

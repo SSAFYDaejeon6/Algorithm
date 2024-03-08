@@ -1,3 +1,4 @@
+package BaekJoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -5,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.StringTokenizer;
 
-public class N16953_A에서B {
+public class BOJ_N16953_A에서B {
 	/**
 	 * 시간: 80ms | 메모리: 11,524KB
 	 */
