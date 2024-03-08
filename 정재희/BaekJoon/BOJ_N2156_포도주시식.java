@@ -1,3 +1,4 @@
+package BaekJoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -5,7 +6,7 @@ import java.io.InputStreamReader;
 /*
  * 13,112 KB | 104ms
  */
-public class N2156_포도주시식 {
+public class BOJ_N2156_포도주시식 {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 

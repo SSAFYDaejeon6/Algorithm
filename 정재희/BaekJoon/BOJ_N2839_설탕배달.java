@@ -1,6 +1,7 @@
+package BaekJoon;
 import java.util.Arrays;
 import java.util.Scanner;
-public class N2839 {
+public class BOJ_N2839_ì„¤íƒ•ë°°ë‹¬ {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -10,7 +11,7 @@ public class N2839 {
 		int a = 5, b =3;
 		int n_five = N / 5;
 		int remain;
-		// 5ÀÇ °³¼ö°¡ ¸î °³ÀÎÁö¿¡ µû¶ó °ªÀÌ °áÁ¤µÊ
+		// 5ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		while(n_five > -1) {
 			remain = N - n_five*a;
 			// if(n_five <= 0 && ) break;

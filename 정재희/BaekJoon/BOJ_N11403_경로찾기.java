@@ -1,12 +1,14 @@
+package BaekJoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 /*
- * DFS ÀÌ¿ë
- * Àç±Í È£Ãâ ÈÄ µ¹¾Æ¿À¸é¼­ ´ÙÀ½¿¡ ¿¬°áµÇ´Â jÀÇ °æ·Î¸¦ ±×´ë·Î °¡Á®¿Í ÇÕÄ¡±â
- * ½Ã°£: 308ms | ¸Ş¸ğ¸®: 13,656KB
+ * DFS ì´ìš©
+ * ì¬ê·€ í˜¸ì¶œ í›„ ëŒì•„ì˜¤ë©´ì„œ ë‹¤ìŒì— ì—°ê²°ë˜ëŠ” jì˜ ê²½ë¡œë¥¼ ê·¸ëŒ€ë¡œ ê°€ì ¸ì™€ í•©ì¹˜ê¸°
+ * ì‹œê°„: 308ms | ë©”ëª¨ë¦¬: 13,656KB
  */
-public class N11403_°æ·ÎÃ£±â {
+
+public class BOJ_N11403_ê²½ë¡œì°¾ê¸°{
 	static int N;
 	static String[][] graph;
 	static boolean[] isVisited;
@@ -44,13 +46,13 @@ public class N11403_°æ·ÎÃ£±â {
 		isVisited[i] = true;
 		for (int j = 0; j < N; j++) {
 			if(graph[i][j].equals("0")) continue;
-			merge(graph[i], searchPath(j)); // j °æ·Î¸¦ ¹«Á¶°Ç °¥ ¼ö ÀÖÀ¸´Ï, ÇÕÄ§
+			merge(graph[i], searchPath(j)); // j ê²½ë¡œë¥¼ ë¬´ì¡°ê±´ ê°ˆ ìˆ˜ ìˆìœ¼ë‹ˆ, í•©ì¹¨
 		}
 		return graph[i];
 	}
 	
 	/**
-	 * str1 ¹è¿­°ú str2 ¹è¿­ Áß 1ÀÌ ÇÏ³ª¶óµµ ÀÖÀ¸¸é 1·Î ¼³Á¤
+	 * str1 ë°°ì—´ê³¼ str2 ë°°ì—´ ì¤‘ 1ì´ í•˜ë‚˜ë¼ë„ ìˆìœ¼ë©´ 1ë¡œ ì„¤ì •
 	 * @param str1
 	 * @param str2
 	 */
@@ -61,3 +63,4 @@ public class N11403_°æ·ÎÃ£±â {
 		
 	}
 }
+

@@ -1,3 +1,4 @@
+package BaekJoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -28,7 +29,7 @@ import java.util.StringTokenizer;
  *    0 이상 -> 해당 주사위 바닥면 값에 복사, 해당 좌표 0으로 초기화
  *    주사위 윗면 수 출력
  */
-public class N14499_주사위굴리기 {
+public class BOJ_N14499_주사위굴리기 {
 
 	public static void main(String[] args) throws IOException {
 		int[] move = {1, 3, 4, 2, 5}; // 현재, 동, 서, 북, 남

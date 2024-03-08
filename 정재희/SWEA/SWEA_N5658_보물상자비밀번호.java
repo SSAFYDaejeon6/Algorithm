@@ -1,3 +1,4 @@
+package SWEA;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,7 +13,7 @@ import java.util.StringTokenizer;
  * 2. 문자열 시계 방향 회전
  * 3. 1~2과정 반복
  */
-public class SWEA5658_보물상자비밀번호 {
+public class SWEA_N5658_보물상자비밀번호 {
 	static int N;
 	static int circle;
 	static char[] number;

@@ -1,11 +1,11 @@
-package Á¤ÀçÈñ.BaekJoon;
+package BaekJoon;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.HashMap;
 
 
 
-public class N25328 {
+public class BOJ_N25328_문자열집합조합하기 {
 	static HashMap<String, Integer> strSet = new HashMap<String, Integer>();
 	static int cnt = 0;
 	public static void main(String[] args) {
