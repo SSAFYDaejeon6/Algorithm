@@ -1,16 +1,18 @@
+package BaekJoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class N2630_»öÁ¾ÀÌ¸¸µé±â {
+public class BOJ_N2630_ìƒ‰ì¢…ì´ë§Œë“¤ê¸° {
 	/**
-	 * 1. Á¶°Ç¿¡ ¸ÂÁö ¾Ê´Â °æ¿ì, ¹üÀ§¸¦ ¹İ¾¿ ÁÙ¿©¼­ Å½»öÇÏ´Â Àç±Í ÇÔ¼ö
-	 * 2. Ä­ ¾È¿¡ ¸ğµÎ °°Àº ¼öÀÌ°Å³ª, Ä­ÀÌ 1°³ÀÎ °æ¿ìÀÇ Á¶°ÇÀ» °Ë»çÇÏ´Â ÇÔ¼ö
+	 * 1. ì¡°ê±´ì— ë§ì§€ ì•ŠëŠ” ê²½ìš°, ë²”ìœ„ë¥¼ ë°˜ì”© ì¤„ì—¬ì„œ íƒìƒ‰í•˜ëŠ” ì¬ê·€ í•¨ìˆ˜
+	 * 2. ì¹¸ ì•ˆì— ëª¨ë‘ ê°™ì€ ìˆ˜ì´ê±°ë‚˜, ì¹¸ì´ 1ê°œì¸ ê²½ìš°ì˜ ì¡°ê±´ì„ ê²€ì‚¬í•˜ëŠ” í•¨ìˆ˜
 	 * 
-	 * ½Ã°£: 112ms, ¸Ş¸ğ¸®: 13,664KB
+	 * ì‹œê°„: 112ms, ë©”ëª¨ë¦¬: 13,664KB
 	 */
-	static String[][] paper;  // »öÁ¾ÀÌ ÀúÀå ¹è¿­
-	static int[] res = new int[2];  // 0: ÇÏ¾á»ö, 1: ÆÄ¶õ»ö
+
+	static String[][] paper;  // ìƒ‰ì¢…ì´ ì €ì¥ ë°°ì—´
+	static int[] res = new int[2];  // 0: í•˜ì–€ìƒ‰, 1: íŒŒë€ìƒ‰
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -29,17 +31,17 @@ public class N2630_»öÁ¾ÀÌ¸¸µé±â {
 	}
 	/**
 	 * 
-	 * @param r : ÇàÀÇ ½ÃÀÛ À§Ä¡
-	 * @param c : ¿­ÀÇ ½ÃÀÛ À§Ä¡
-	 * @param n : ¹üÀ§ÀÇ Å©±â
+	 * @param r : í–‰ì˜ ì‹œì‘ ìœ„ì¹˜
+	 * @param c : ì—´ì˜ ì‹œì‘ ìœ„ì¹˜
+	 * @param n : ë²”ìœ„ì˜ í¬ê¸°
 	 */
 	private static void splitSearch(int r, int c, int n) {
-		if(n == 1 || search(r, c, n)) {   // ¸ğµÎ °°Àº ¼öÀÌ°Å³ª Ä­ÀÌ 1°³ÀÎ °æ¿ì, Á¾·á
+		if(n == 1 || search(r, c, n)) {   // ëª¨ë‘ ê°™ì€ ìˆ˜ì´ê±°ë‚˜ ì¹¸ì´ 1ê°œì¸ ê²½ìš°, ì¢…ë£Œ
 			res[Integer.parseInt(paper[r][c])]++;
 			return;
 		}
 		int newN = n/2;
-		// Á¾ÀÌ 4µîºĞÇØ¼­ ¹İº¹ ÀÛ¾÷ ¼öÇà
+		// ì¢…ì´ 4ë“±ë¶„í•´ì„œ ë°˜ë³µ ì‘ì—… ìˆ˜í–‰
 		splitSearch(r, c, newN);
 		splitSearch(r+newN, c, newN);
 		splitSearch(r, c+newN, newN);
@@ -47,11 +49,11 @@ public class N2630_»öÁ¾ÀÌ¸¸µé±â {
 	}
 	
 	/**
-	 * ÇØ´ç ±¸¿ª ¾È¿¡ ¸ğµç °ªÀÌ µ¿ÀÏÇÑÁö °Ë»çÇÏ´Â ÇÔ¼ö
-	 * @param r : ÇàÀÇ ½ÃÀÛ À§Ä¡
-	 * @param c : ¿­ÀÇ ½ÃÀÛ À§Ä¡
-	 * @param n : ¹üÀ§ÀÇ Å©±â
-	 * @return true: ÇØ´ç ¹üÀ§ÀÇ °ªÀÌ ¸ğµÎ µ¿ÀÏÇÏ´Ù
+	 * í•´ë‹¹ êµ¬ì—­ ì•ˆì— ëª¨ë“  ê°’ì´ ë™ì¼í•œì§€ ê²€ì‚¬í•˜ëŠ” í•¨ìˆ˜
+	 * @param r : í–‰ì˜ ì‹œì‘ ìœ„ì¹˜
+	 * @param c : ì—´ì˜ ì‹œì‘ ìœ„ì¹˜
+	 * @param n : ë²”ìœ„ì˜ í¬ê¸°
+	 * @return true: í•´ë‹¹ ë²”ìœ„ì˜ ê°’ì´ ëª¨ë‘ ë™ì¼í•˜ë‹¤
 	 */
 	private static boolean search(int r, int c, int n) {
 		String preV = paper[r][c];

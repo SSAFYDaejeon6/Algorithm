@@ -1,9 +1,10 @@
+package BaekJoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class N1012 {
+public class BOJ_N1012_유기농배추 {
 	static int M;
 	static int N;
 	static int[][] bat;

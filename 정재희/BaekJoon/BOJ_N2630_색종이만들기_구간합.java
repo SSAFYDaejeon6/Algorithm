@@ -1,9 +1,10 @@
+package BaekJoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class N2630_색종이만들기_구간합 {
+public class BOJ_N2630_색종이만들기_구간합 {
 	/**
 	 * 재민님 코드 참고 후 DP로 구현해봄
 	 * DP 활용, 구간합을 이용해서 탐색 과정 제거

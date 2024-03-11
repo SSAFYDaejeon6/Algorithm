@@ -1,3 +1,4 @@
+package BaekJoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,7 +8,7 @@ import java.util.StringTokenizer;
  * X 또는 Y 목표 중 큰 수에 맞춰 횟수 증가
  * 시간: 512ms | 메모리: 39,728KB
  */
-public class N6064_카잉달력 {
+public class BOJ_N6064_카잉달력 {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

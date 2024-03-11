@@ -1,3 +1,4 @@
+package BaekJoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,7 +16,7 @@ import java.util.StringTokenizer;
  * 3. 모든 나라를 방문할 때까지 반복
  * 4. 이를 바뀌는 날이 없을 때까지 반복
  */
-public class N16234_인구이동 {
+public class BOJ_N16234_인구이동 {
 	static int[][] deltas = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
 	static int[][] countries;
 	static int N, L, R;

@@ -1,3 +1,4 @@
+package BaekJoon;
 import java.util.Queue;
 import java.util.Stack;
 import java.util.ArrayDeque;
@@ -12,7 +13,7 @@ import java.util.Collections;
  * 메모리: 20,344KB   |   시간: 268ms
  *
  */
-public class Main_N1260_DFS와BFS {
+public class BOJ_N1260_DFS와BFS {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

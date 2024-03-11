@@ -1,9 +1,10 @@
+package BaekJoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class N14888_연산자끼워넣기_정재희 {
+public class BOJ_N14888_연산자끼워넣기 {
 	/**
 	 * [ 문제 해석 ]
 	 * N개의 수 순서 고정
