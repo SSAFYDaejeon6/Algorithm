@@ -2,8 +2,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
+/*
+ * 왼쪽 위부터 시작해서 각 지점에서 갈 수 있는 지점에 대해 메모리제이션 사용
+ * 11752KB | 80ms
+ */
 
-public class 채점 {
+public class 점프 {
 	static int N;
 	static int[][] map; 
 	static long[][] dp;
