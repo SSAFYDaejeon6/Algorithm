@@ -5,25 +5,29 @@
 
 |깃&nbsp;허&nbsp;브|[korno1](https://github.com/korno1)|[alex&nbsp;-&nbsp;koko](https://github.com/alex-koko)|[djleeasi](https://github.com/djleeasi)|[hj&nbsp;-&nbsp;k66](https://github.com/hj-k66)| [stoneTiger0912](https://github.com/stoneTiger0912)|[wlsdn2749](https://github.com/wlsdn2749)|[Jungjaehee](https://github.com/Jungjaehee)|[honggyeonghyeon](https://github.com/honggyeonghyeon)|
 |:---:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|
-|백&nbsp;준|[korno1](https://solved.ac/profile/korno1)|[backalex](https://solved.ac/profile/backalex)|[djleeasi](https://solved.ac/profile/djleeasi)|[hjx06](https://solved.ac/profile/hjx06)|[dltjrqja1](https://solved.ac/profile/dltjrqja1)|[wlsdn2749](https://solved.ac/profile/wlsdn2749)|[xxx](https://solved.ac/profile/xxx)|[xxx](https://solved.ac/profile/xxx)
+|백&nbsp;준|[korno1](https://solved.ac/profile/korno1)|[backalex](https://solved.ac/profile/backalex)|[djleeasi](https://solved.ac/profile/djleeasi)|[hjx06](https://solved.ac/profile/hjx06)|[dltjrqja1](https://solved.ac/profile/dltjrqja1)|[wlsdn2749](https://solved.ac/profile/wlsdn2749)|[xxx](https://solved.ac/profile/xxx)|[hyeon21owo](https://solved.ac/profile/hyeon21owo)
 |언&nbsp;어|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>| <img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>|<img src = "https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white"/>
 
 <br><br>
 
-## 오늘의 문제 (2024-01-24)
+## 오늘의 문제 (2024-03-11)
+
 | 순번 | 문제 번호 | 문제 이름  | 난이도 | 링크 | 사이트 |
 :--: | :---------: | :---------------------: | :------:  | :---------:  | :------: |
-| 00 | 10157 | 자리배정 | 실버4 | [10157](https://www.acmicpc.net/problem/10157) |백준|
+| 00 | 17070  | 파이프 옮기기1 | G5 | [17070](https://www.acmicpc.net/problem/17070) |백준|
+
 
 ## 규칙
 ```
 1. 일주일에 3문제를 정하고 월, 수, 금 23:59분 기준 제출
-2. 난이도는 백준 실버 2 ~ 3 수준의 문제
+2. 난이도는 백준 실버 1 ~ 3 수준의 문제
 3. 플랫폼은 백준, SWEA, 프로그래머스
 4. 문제 선택은 번갈아가면서
-5. 각자 코드를 github에 올리고 궁금한 점을 올리거나 다른 사람 코드에서 궁금한 부분을 질문
-6. 문제를 안풀경우 벌금 1000원, 못풀경우는 구글링 해서 이해하고 오기
-7. 언어는 무조건 자바로 풀고 다른 언어는 개인적으로 풀기
+5. 언어는 무조건 자바로 풀고 다른 언어는 개인적으로 풀기
+6. 각자 코드를 github에 올리기
+8. 올린 코드는 Notion에도 링크하기
+9. 궁금한 점을 올리거나 다른 사람 코드에서 궁금한 부분을 질문해주세요!
+10. 문제를 안풀경우 벌금 1000원, 못풀경우는 구글링 해서 이해하고 오기
 ```
 
 ## 깃허브 관련 주의할 점
