@@ -1,0 +1,109 @@
+package algo0313;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+/**34456kb	528ms
+ * 마인크래프트 1x1x1 블록 3차원 세계
+ * 땅 고른 후 집 짓기 
+ * N x M (세로, 가로) 집터 0,0에서 시작 (1~500)
+ * 
+ * 작업 
+ * 1. 좌표 (i,j)의 가장 위에 있는 블록을 제거하여 인벤토리에 넣기 - 2초
+ * 2. 인벤토리에서 블록 하나를 꺼내어 좌표 (i,j)의 가장 위에 있는 블록 위에 놓기 - 1초
+ * 
+ * 목표) 땅 고르기에 걸리는 최소 시간과 그 경우 땅의 높이를 출력
+ * 
+ * 제한 조건) 작업을 시작할 때 인벤토리에는 B개의 블록이 들어 있음 (0~6.4*10^7)
+ * 땅의 높이는 256블록을 초과할 수 없고 음수가 될 수 없음
+ * 
+ * [전략]
+ * 1. 인벤토리의 블록을 먼저 사용
+ * 2. 나머지는 맨위의 블록 꺼내서 넣기
+ * 
+ * 1. 0~ 최대값 사이의 높이로 평탄화 작업
+ * 2. 0부터 순서대로 진행 (맨처음에 인벤토리 먼저 사용하고)
+ * 
+ * 방법) 인벤토리에서 꺼내기 (1초)
+ * 이미 있는 블록 빼내기 (2초)
+ * 블록 빼내서 새로 놓기 (3초)
+ * 
+ * 1. map >temp -> 빼야 (2초) minus
+ * 2. map < temp -> 더해야 (1초) 인벤토리 이용
+ * 3. == -> 유지 (0초) 
+ * */
+public class 마인크래프트 {
+	static int N, M, B;
+	static int[][] map;
+	static int max; //최대높이
+	static int min = Integer.MAX_VALUE; //최소높이
+	static int min_time = Integer.MAX_VALUE;; //최소시간
+	static int height;
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+		B = Integer.parseInt(st.nextToken());
+		map = new int[N][M];
+		
+		for ( int i=0; i<N; i++) {
+			st = new StringTokenizer(br.readLine());
+			for (int j=0; j<M; j++) {
+				int num = Integer.parseInt(st.nextToken());
+				map[i][j] = num;
+				max = Math.max(max, num);
+				min = Math.min(min, num);
+			}
+		}
+		
+//		System.out.println(Arrays.deepToString(map));
+//		System.out.println(max);
+//		System.out.println(min);
+		int temp = min;
+		while ( temp <= max ) {
+			int now = calculate(temp);
+			if (now < 0 ) {
+				temp++;
+				continue;
+			}
+			else if (min_time >= now) {
+				min_time = now;
+				height = temp;
+			}
+			temp++;
+		}
+		System.out.println(min_time+ " " + height);
+	}
+	
+	static int calculate(int temp) {
+		int plus = 0, minus = 0, time = 0;
+		for (int i=0; i<N; i++) {
+			for (int j=0; j<M; j++) {
+				int noww = map[i][j] - temp;
+				if (noww > 0) {
+					minus += noww;
+				}  else if (noww < 0) {
+					plus -= noww;
+				}
+			}
+		}
+		if ( B >= plus ) {
+			time += plus;
+			time += minus * 2;
+		} else {
+			time += B;
+			time += minus * 2;
+			if (minus >= plus - B) {
+				time += plus - B;
+			} else return -1;
+		}
+		return time;
+		
+		
+	}
+
+}
