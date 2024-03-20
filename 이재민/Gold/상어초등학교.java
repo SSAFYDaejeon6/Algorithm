@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 /*
  * 우선순위 큐를 사용 (매번 정렬이 일어나서 좀 느림)
  * 나머지 주석은 코드에
- * 21040KB | 200ms
+ * 21040KB | 200ms.
  */
 
 public class 상어초등학교 {
