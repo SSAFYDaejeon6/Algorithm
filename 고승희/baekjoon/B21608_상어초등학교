@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-/** 테케, 반례 다 맞는데 왜 틀렸다는지 모르겠음!!! 살려주셈
+/** 12856kb	140ms
  * 교실 N x N (N; 3~20)
  * 학생 수 N^2명
  * 1~N^2번까지 번호가 매겨져 있고 r,c는 r행 c열
@@ -106,7 +106,8 @@ public class 상어초 {
 				int likeCnt = 0;
 				int k = map[i][j];
 				int num = 0;
-				for (int n = 0; n<9; n++) {
+				for (int n = 0; n<N*N; n++) { 
+				//여기서 N*N대신 9로 해서 틀렸던 거임... 재민님.. 감사합니다...
 					if (info[n][0] == k) {
 						num = n;
 					}
