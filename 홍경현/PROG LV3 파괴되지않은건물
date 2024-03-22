@@ -1,0 +1,79 @@
+import java.util.*;
+/*
+[문제 해석]
+NxM 크기 행렬 모양의 게임 맵
+내구도를 가진 건물이 각 칸마다 하나씩 있음
+적 : 건물들을 공격하여 파괴
+건물 : 적의 공격을 받으면 내구도 감소, 내구도 0이 되면 파괴
+아군 : 회복 스킬 사용하여 건물 내구도 높이려고 함
+
+적의 공격과 아군의 회복 스킬을 항상 직사각형 모양
+
+건물 내구도 board
+적 혹은 아군의 회복 스킬 skill
+파괴되지 않은 건물의 개수 return
+
+[제약사항]
+1<=N<=1000
+1<=M<=1000
+1<=board[i][]<=1000
+1<=skill<=250000
+skill의 열의 길이 6
+skill의 각 행은 [type, r1, c1, r2, c2, degree]
+	- type 1: 적, 2: 아군
+	- (r1, c1) (r2, c2) 직사각형 모양의 범위 안에 있는 건물의 내구도를 degree만큼
+		낮추거나 높임
+	- 1<=degree<=500
+내구도가 1이상이 되면 파괴되지 않은 상태
+*/
+
+class Solution {
+    public int solution(int[][] board, int[][] skill) {
+        int N = board.length;
+        int M = board[0].length;
+        int sum[][] = new int[N+1][M+1];
+        int result = 0;
+
+        //누적합
+        for(int[] s : skill){
+            int type = s[0];
+            int r1 = s[1];
+            int c1 = s[2];
+            int r2 = s[3];
+            int c2 = s[4];
+            int degree = s[5];
+            
+            if(type==1){ //적의 공격
+                degree = -degree;
+            }
+            
+            sum[r1][c1] += degree;
+            sum[r1][c2+1] -= degree;
+            sum[r2+1][c1] -= degree;
+            sum[r2+1][c2+1] += degree;
+        }
+        
+        //가로
+        for(int i=0; i<=N; i++){
+            for(int j=0; j<M; j++){
+                sum[i][j+1] += sum[i][j];
+            }
+        }
+        
+        //세로
+        for(int i=0; i<N; i++){
+            for(int j=0; j<=M; j++){
+                sum[i+1][j] += sum[i][j];
+            }
+        }
+        
+        //파괴되지 않은 건물
+        for(int i=0; i<N; i++){
+            for(int j=0; j<M; j++){
+                if(sum[i][j]+board[i][j]>0) result++;
+            }
+        }
+       
+        return result;
+    }
+}
