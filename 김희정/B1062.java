@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 /*
 [BOJ] 1062 G4 가르침
-14688kb |	348ms
+13084KB |	300ms
 
 필수 : a,n,t,i,c
 k < 5 : 읽을 수 있는 단어 갯수 = 0
@@ -16,7 +16,6 @@ k < 5 : 읽을 수 있는 단어 갯수 = 0
 public class B1062 {
     static int N;
     static int K;
-    static char[] output;
     static String[] word;
     static boolean[] alphabet;
 
@@ -42,7 +41,6 @@ public class B1062 {
         for(int i = 0; i < N; i++){
             word[i] = br.readLine();
         }
-        output = new char[K-5];
         answer = 0;
         //k-5개의 알파벳 뽑음
         comb(0, 'b');
@@ -52,9 +50,6 @@ public class B1062 {
     }
     static void comb(int cnt, char start){
         if(cnt == K-5){
-            for(int i = 0; i < K-5; i++){
-                alphabet[output[i]] = true;
-            }
             int wordCnt = 0;
             //N개의 단어 중 읽을 수 있는 단어 갯수 구하기
             A:for (String w: word) {
@@ -64,22 +59,16 @@ public class B1062 {
                 }
                 wordCnt++;
             }
-
             answer = Math.max(wordCnt, answer);
-
-            //원복
-            for(int i = 0; i < K-5; i++){
-                alphabet[output[i]] = false;
-            }
             return;
         }
 
 
         for(char w = start; w <= 'z'; w++){
             if(alphabet[w]) continue;
-            output[cnt] = w;
             alphabet[w] = true;
             comb(cnt+1, (char)(w+1));
+            alphabet[w] = false;
         }
     }
 }
