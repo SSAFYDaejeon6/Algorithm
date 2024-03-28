@@ -1,3 +1,4 @@
+package algo0327;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,9 +8,10 @@ import java.util.StringTokenizer;
  * 어려워서
  * 문제풀이방법보고 공부하는 중 ing
  * 
+ * 이분탐색이 뭔지 배웠어용
  * 
  * */
-public class 유료고속도로 {
+public class B1477_휴게소세우기 {
 	static int N, M, L;
 	static int[] now;
 	public static void main(String[] args) throws IOException {
@@ -19,12 +21,44 @@ public class 유료고속도로 {
 		M = Integer.parseInt(st.nextToken());
 		L = Integer.parseInt(st.nextToken());
 
-		now = new int[N];
+		now = new int[N+2];
 		st = new StringTokenizer(br.readLine());
-		for (int i=0; i<N; i++) {
+		for (int i=1; i<=N; i++) {
 			now[i] = Integer.parseInt(st.nextToken());
 		}
-		System.out.println(Arrays.toString(now));
+//		System.out.println(Arrays.toString(now));
+		now[0] = 0;
+		now[N+1] = L;
+		
+		int result = solve();
+		
+		System.out.println(result);
 	}
+	private static int solve() {
+		Arrays.sort(now);
+//		System.out.println(Arrays.toString(now));
+		int left = 1;
+		int right = L-1;
+		while (left <= right) {
+			int dis = (left + right) / 2;
+			if (make_store(dis)) {
+				left = dis+1;
+			} else {
+				right = dis - 1;
+			}
+		} return left;
+	}
+	private static boolean make_store(int dis) {
+		int count = 0;
+		for (int i=1; i<=N+1; i++) {
+			count += (now[i] - now[i-1]-1)/dis;
+		}
+		if (count > M) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 
 }
