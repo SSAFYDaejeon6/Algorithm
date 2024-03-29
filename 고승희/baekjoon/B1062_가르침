@@ -1,0 +1,77 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+/**
+ * 13240kb	248ms
+ * K개의 글자, N개의 단어 주어짐
+ * anta --- tica 이므로 a,n,t,i,c 꼭 보유해야 함
+ * 
+ * 조합 아이디어, 백트래킹
+ * 
+ * */
+public class 가르침 {
+	static String word[];
+	static boolean[] alphabet;
+	static int max = Integer.MIN_VALUE;
+	static int N, K;
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		N = Integer.parseInt(st.nextToken());
+		K = Integer.parseInt(st.nextToken());
+		word = new String[N];
+		for (int i=0; i<N; i++) {
+			String str = br.readLine();
+			int len = str.length();
+			word[i] = str.substring(4, len-4);
+		}
+//		System.out.println(Arrays.toString(word));
+		
+		if (K < 5) {
+			System.out.println(0);
+			return;
+		} else if (K == 26) {
+			System.out.println(N);
+			return;
+		}
+		
+		alphabet = new boolean[26];
+		alphabet['a'-'a'] = true;
+		alphabet['c'-'a'] = true;
+		alphabet['i'-'a'] = true;
+		alphabet['n'-'a'] = true;
+		alphabet['t'-'a'] = true;
+		
+		backtracking(0,0);
+		System.out.println(max);
+	}
+	
+	private static void backtracking(int idx, int len) {
+		if (len == K-5) {
+			int cnt = 0;
+			for (int i=0; i<N; i++) {
+				boolean read = true;
+				for (int j=0; j<word[i].length(); j++) {
+					if (!alphabet[word[i].charAt(j) - 'a']) {
+						read = false;
+						break;
+					}
+				}
+				if (read) cnt++;
+			}
+			max = Math.max(max, cnt);
+			return;
+		}
+		
+		for (int i=idx; i < 26; i++) {
+			if (alphabet[i] == false) {
+				alphabet[i] = true;
+				backtracking(i, len+1);
+				alphabet[i] = false;
+			}
+		}
+	}
+}
