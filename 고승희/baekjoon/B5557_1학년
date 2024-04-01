@@ -1,0 +1,51 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+/**
+ * 올바른 등식 만들기
+ * 1. 중간 계산값이 음수 X
+ * 2. 20이 넘는 수 X 
+ * => 0이상 20 이하
+ * 
+ * N : 숫자의 개수 (3~100)
+ * 0이상 9 이하의 정수 N개가 공백으로 구분해 주어짐
+ * 
+ * 상근이가 만들 수 있는 올바른 등식의 수 출력 (2^63-1이하 -> long범위)
+ * 
+ * [시간 복잡도]
+ * 1. 완탐
+ * - 100개 => 98개의 +,- 선택
+ * - 2^98 (불가)
+ * 
+ * 2. dp로 풀기
+ * 
+ * */
+public class 일학년 {
+	static int N;
+	static int[] number;
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st;
+		
+		N = Integer.parseInt(br.readLine());
+		number = new int[N];
+		st = new StringTokenizer(br.readLine());
+		for (int i=0; i<N; i++) {
+			number[i] = Integer.parseInt(st.nextToken());
+		}
+		
+		long[][] dp = new long[N-1][21];
+		dp[0][number[0]]  = 1;
+		for (int i=1; i<N-1; i++) {
+			for (int num=0; num<=20; num++) {
+				if (num-number[i] >=0) dp[i][num] += dp[i-1][num-number[i]];
+				if (num+number[i] <= 20) dp[i][num] += dp[i-1][num+number[i]];
+			}
+		}
+		System.out.println(dp[N-2][number[N-1]]);
+		
+	}
+
+}
