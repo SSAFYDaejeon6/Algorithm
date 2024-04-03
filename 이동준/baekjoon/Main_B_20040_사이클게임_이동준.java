@@ -1,11 +1,9 @@
-/**Main_B_20040_사이클게임_이동준 149720KB 516ms
+/**Main_B_20040_사이클게임_이동준 143820KB 480ms
  * Facts
  * 	사이클을 감지해야 한다.
  * IDEA
  * 	Union-find를 사용한다. 주어진 선분을 연결하려 하는데 선분의 두 점의 집합이 일치하면 return
- * 	findSet 할때만 path collapsing 이 일어나는 것이 바람직하다
- * 	원소가 더해질 때
- * 	depth: parent 원소의 depth + 1 
+	rank 최적화 믿 path compression 최적화
  */
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -57,13 +55,17 @@ public class Main_B_20040_사이클게임_이동준 {
 			DisjointSet aP = findSet();
 			DisjointSet bP = b.findSet();
 			if(aP.equals(bP)) return null;//unmergeable(cycle detected)
-			if(aP.rank == bP.rank || aP.rank > bP.rank) {
+			if(aP.rank == bP.rank) {
 				bP.parent = aP;
+				aP.rank++;
 				return aP;
 			}
-			else{
+			else if(aP.rank < bP.rank){
 				aP.parent = bP;
 				return bP;
+			}else {
+				bP.parent = aP;
+				return aP;
 			}
 		}
 		
