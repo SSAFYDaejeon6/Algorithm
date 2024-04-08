@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 // 	22632KB	|	300ms
-// 풀이 : 우선순위 큐로 0/1 BFS 구현
+// 풀이 : 우선순위 큐로 다익스트라 구현
 public class B13549 {
 	
 	static int N;
@@ -18,11 +18,11 @@ public class B13549 {
 		N = Integer.parseInt(st.nextToken());
 		K = Integer.parseInt(st.nextToken());
 		
-		BFS(N);
+		Dijkstra(N);
 		System.out.println(answer);
 	}
 	
-	static void BFS(int n) {
+	static void Dijkstra(int n) {
 		// 숫자, 시간
 		PriorityQueue<int[]> pq = new PriorityQueue<>((o1,o2) -> o1[1] - o2[1]);
 		pq.add(new int[] {n,0});
