@@ -1,0 +1,85 @@
+package algo0408;
+/**	22888kb	228ms
+ * 수빈 동생 숨바꼭질 중
+ * 수빈 위치 : N (0~10만)
+ * 동생 위치: K (0~10만)
+ * 
+ * 수빈이(X)가 걷는다면 1초후 (X-1) 또는 (X+1)로 이동
+ * 순간이동하는 경우 0초 후 2*X 로 이동
+ * 
+ * 수빈이와 동생의 위치가 주어졌을 때 수빈이가 동생을 찾을 수 있는 가장 빠른 시간이 몇 초인지 구하여라
+ * 
+ * 
+ * 
+ * */
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class 숨바꼭질3 {
+	static int[] visited;
+	static int N, K;
+	static int ans = Integer.MAX_VALUE;
+	static class Node {
+		int loc;
+		int time;
+		@Override
+		public String toString() {
+			return "Node [loc=" + loc + ", time=" + time + "]";
+		}
+		public Node(int loc, int time) {
+			super();
+			this.loc = loc;
+			this.time = time;
+		}
+		public Node() {
+			super();
+		}
+	}
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
+		K = sc.nextInt();
+		visited = new int [100001];
+		for (int i=0; i<=100000; i++) {
+			visited[i] = Integer.MAX_VALUE;
+		}
+		
+//		System.out.println(Arrays.toString(visited));
+		if (K == N) {
+			System.out.println(0);
+			return;
+		} 
+		bfs();
+		System.out.println(ans);
+	}
+	
+	static void bfs() {
+		Queue<Node> queue = new ArrayDeque<>();
+		
+		queue.add(new Node(N, 0));
+		
+		while (!queue.isEmpty()) {
+			int size = queue.size();
+			
+			while (size-- > 0) {
+				Node temp = queue.poll();
+				if (temp.loc == K) ans = Math.min(ans, temp.time);
+				else {
+					if (temp.time >= visited[temp.loc]) continue;
+					visited[temp.loc] = temp.time;
+					
+					if (inRange(temp.loc-1) && temp.time+1 < visited[temp.loc-1]) queue.add(new Node(temp.loc-1, temp.time+1));
+					if (inRange(temp.loc+1) && temp.time+1 < visited[temp.loc+1]) queue.add(new Node(temp.loc+1, temp.time+1));
+					if (inRange(temp.loc*2) && temp.time < visited[temp.loc*2]) queue.add(new Node(temp.loc*2, temp.time));
+				}
+			}
+		}
+	}
+	
+	static boolean inRange(int loc) {
+		return (loc >= 0 && loc <= 100000);
+	}
+
+}
