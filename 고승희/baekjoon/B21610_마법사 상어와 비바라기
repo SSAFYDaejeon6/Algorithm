@@ -1,0 +1,156 @@
+package algo0313;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+/**
+ * 	27528kb	640ms
+ * N x N 격자 1부터 시작 (2~50)
+ * r,c = r행 c열 바구니 A[r][c](0~100) ; 저장된 물의 양
+ * 1번행과 N번행 연결, 1번열과 N번열 연결
+ * (N,1), (N,2), (N-1,1), (N-1,2)에 비구름 생김
+ * 구름에 M(1~100)번 이동 명령 di(1~8), si(1~50)
+ * 방향; 8방향 왼쪽부터 시계방향으로
+ * 
+ * [이동순서]
+ * 1. 모든 구름이 di방향으로 si칸 이동
+ * 2. 각 구름에서 비가 내려서 구름 칸의 바구니에 저장된 물의양 1 증가
+ * 3. 구름이 모두 사라짐
+ * 4. 2에서 물이 증가한 칸 r,c에 물복사 버그 마법 시전
+ * 	- 대각선 방향으로 거리가 1인 칸에 물이 있는 바구니의 수만큼 
+ * 		(r,c)에 있는 바구니의 물의 양이 증가
+ * 	- 경계가 넘어가는 칸은 대각선 거리1인 칸이 아님
+ * 5. 바구니에 저장된 물의 양이 2이상인 모든 칸에 구름이 생기고
+ * 	물의 양이 2 줄어든다.
+ * 	이때 구름이 생기는 칸은 3에서 구름이 사라진 칸이 아니어야 함
+ * 
+ * [문제 풀이 방법]
+ * 1. 첫 위치에 구름 놓기
+ * 2. di,si이동
+ * 3. 비가 내려서 물의양 1 증가
+ * 4. 구름 사라지게 하기 (이때 위치 표시하기)
+ * 5. r,c에서 거리가 1인 칸에 물이 있는 수만큼 바구니의 물의 양이 증가
+ * 6. 현 상태에서 물의양이 2이상인 모든 칸에 구름 생기고 물의 양이 2 줄어든다.
+ * 단, 구름이 사라진 칸이 아니어야 함
+ * 
+ * [목표] M번이동 후의 바구니에 들어있는 물의 양의 합 구하기
+ * */
+public class 비바라기 {
+	static int N, M;
+	static int[][] map;
+	static int[][] command;
+	static Queue<Location> queue;
+	static List<Location> lastCloud;
+	static int delta[][] = {{0, -1}, {-1,-1}, {-1,0}, {-1,1},
+			{0, 1}, {1,1}, {1,0}, {1,-1}}; //왼부터 시계방향
+	static int delta2[][] = {{-1,-1}, {-1,1}, {1,-1},{1,1}};
+	static class Location {
+		int r;
+		int c;
+		public Location(int r, int c) {
+			this.r = r;
+			this.c = c;
+		}
+		@Override
+		public String toString() {
+			return "Location [r=" + r + ", c=" + c + "]";
+		}
+	}
+			
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+		map = new int[N][N];
+		command = new int[M][2];
+		for (int i=0; i<N; i++) {
+			st = new StringTokenizer(br.readLine());
+			for (int j=0; j<N; j++) {
+				map[i][j] = Integer.parseInt(st.nextToken());
+			}
+		}
+		for (int i=0; i<M; i++) {
+			st = new StringTokenizer(br.readLine());
+			command[i][0] = Integer.parseInt(st.nextToken());
+			command[i][1] = Integer.parseInt(st.nextToken());
+		}
+		queue = new ArrayDeque<>(); //1. 첫위치에 구름 놓기
+		queue.add(new Location(N-1, 0));
+		queue.add(new Location(N-1, 1));
+		queue.add(new Location(N-2, 0));
+		queue.add(new Location(N-2, 1));
+		lastCloud = new ArrayList<>();
+		int cmd = 0;
+		while (cmd < M) { //cmd 증가시켜야 함
+			int di = command[cmd][0] -1;
+			int si = command[cmd][1];
+			int size = queue.size();
+			while (size-- > 0) { //2.di,si이동
+				Location cloud = queue.poll();
+				int nr = indexChange(cloud.r,delta[di][0] * si);
+				int nc = indexChange(cloud.c,delta[di][1] * si);
+
+				map[nr][nc]++; //3.물의 양 1증가
+				lastCloud.add(new Location(nr,nc)); //4. 구름 사라질 때(queue) 위치 표시
+			}
+			
+			//5. 물복사 버그
+			for (int i=0; i<lastCloud.size(); i++) {
+				int cnt = 0;
+				for (int d=0; d<4; d++) {
+					int nr = lastCloud.get(i).r+delta2[d][0];
+					int nc = lastCloud.get(i).c+delta2[d][1];
+					if (isInRange(nr,nc) && map[nr][nc] > 0) cnt++;
+				}
+				map[lastCloud.get(i).r][lastCloud.get(i).c] += cnt;
+			}
+			//6. 새로 구름 생기기
+			for (int i=0; i<N; i++) {
+				A: for (int j=0; j<N; j++) {
+					int temp = map[i][j];
+					if (temp < 2) continue;
+					for (int k=0; k<lastCloud.size(); k++) {
+						if (i == lastCloud.get(k).r && j == lastCloud.get(k).c) {
+							continue A;
+						}
+					}
+					map[i][j] -= 2;
+					queue.add(new Location(i,j));
+				}
+			}
+			lastCloud.clear();
+			cmd++;
+		}
+		
+		//7. 최종 값 더하기
+		int sum = 0;
+		for (int i=0; i<N; i++) {
+			for (int j=0; j<N; j++) {
+				sum += map[i][j];
+			}
+		}
+		System.out.println(sum);
+	}
+	
+	static int indexChange(int old, int n) {
+		int temp = old + n%N;
+		if (temp >= N) {
+			return temp - N;
+		} else if (temp < 0) {
+			return N + temp;
+		} else return temp;
+	}
+
+	static boolean isInRange(int r, int c) {
+		return (r >= 0 && r < N && c >= 0 && c < N);
+	}
+}

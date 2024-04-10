@@ -1,0 +1,139 @@
+package algo0313;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+/** 12856kb	140ms
+ * 교실 N x N (N; 3~20)
+ * 학생 수 N^2명
+ * 1~N^2번까지 번호가 매겨져 있고 r,c는 r행 c열
+ * 행이 같거나 열이 같고 나머지 하나는 1차이 = 인접하다
+ * 
+ * 1. 비어있는 칸 중에 좋아하는 학생이 인접칸에 가장 많은 칸
+ * 2. 1을 만족하는 칸이 여러개이면 인접칸중에 비어있는 칸이 가장 많은 칸
+ * 3. 2를 만족하는 칸이 여러개이면 행의 번호가 가장 작은 칸, 여러개면 열의 번호가 작은 칸
+ * 
+ * 학생의 만족도의 총 합을 구하여라 
+ * 인접 좋아하는 학생 수가 0 -> 0, 1->1, 2->10, 3->100, 4->1000
+ * 
+ * 범위 내, 
+ * 상하좌우에 좋아하는 학생이 인접 가장 많 -> 
+ * 비어있는 칸이 가장 많 -> 
+ * 행 번호 작 -> 
+ * 열 번호 작
+ * */
+public class 상어초 {
+	static int N;
+	static int map[][];
+	static int info[][];
+	static int satisfy;
+	static int[][] delta = {{-1,0}, {0, -1}, {1, 0}, {0, 1}}; //상좌하우
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st;
+		
+		N = Integer.parseInt(br.readLine());
+		info = new int[N*N][5]; //1~N*N까지
+		map = new int[N][N];
+		for (int i=0; i<N*N; i++) {
+			st = new StringTokenizer(br.readLine());
+//			int num = Integer.parseInt(st.nextToken());
+			for (int j=0; j<5; j++) {
+				info[i][j] = Integer.parseInt(st.nextToken());
+			}
+		}
+		
+//		System.out.println(Arrays.deepToString(info));
+		
+		for (int k=0; k<N*N; k++) {
+			seat(k);
+//			System.out.println(Arrays.deepToString(map));
+		}
+//		System.out.println(Arrays.deepToString(map));
+		getSatisfy();
+		
+	}
+	
+	static void seat(int k) {
+		int ar = 0, ac = 0;
+		int like = -1;
+		int empty = -1;
+		for (int i=0; i<N; i++) {
+			for (int j=0; j<N; j++) {
+				if (map[i][j] != 0 ) continue;
+				int likeCnt = 0;
+				int emptyCnt = 0;
+				for (int d=0; d<4; d++) {
+					int nr = i + delta[d][0];
+					int nc = j + delta[d][1];
+					if (!isInRange(nr, nc)) continue;
+					int temp = map[nr][nc];
+					if (temp == info[k][1] || temp == info[k][2] || 
+							temp == info[k][3] || temp == info[k][4]) {
+						likeCnt++;
+					}
+					if (temp == 0) emptyCnt++;
+				}
+				if (like < likeCnt) {
+					like = likeCnt;
+					empty = emptyCnt;
+					ar = i;
+					ac = j;
+				} else if (like == likeCnt) {
+					if (empty < emptyCnt) {
+						empty = emptyCnt;
+						ar = i;
+						ac = j;
+					}
+				}
+			}
+		}
+		map[ar][ac] = info[k][0];
+//		System.out.println("ar:" + ar + " ac:"+ac + " like:"+like+" empty:"+empty);
+
+	}
+	
+	static boolean isInRange(int r, int c) {
+		return (r >= 0 && r < N && c >=0 && c < N);
+	}
+	
+	static void getSatisfy() {
+		for (int i=0; i<N; i++) {
+			for (int j=0; j<N; j++) {
+				int likeCnt = 0;
+				int k = map[i][j];
+				int num = 0;
+				for (int n = 0; n<N*N; n++) { 
+				//여기서 N*N대신 9로 해서 틀렸던 거임... 재민님.. 감사합니다...
+					if (info[n][0] == k) {
+						num = n;
+					}
+				}
+				for (int d=0; d<4; d++) {
+					int nr = i + delta[d][0];
+					int nc = j + delta[d][1];
+					if (!isInRange(nr, nc)) continue;
+					int temp = map[nr][nc];
+					if (temp == info[num][1] || temp == info[num][2] || 
+							temp == info[num][3] || temp == info[num][4]) {
+						likeCnt++;
+					}
+				}
+				if (likeCnt == 0 ) {
+					satisfy += 0;
+				} else if (likeCnt == 1 ){
+					satisfy += 1;
+				}	else {
+				
+					satisfy += Math.pow(10, likeCnt-1);
+//					System.out.println(num + " " + satisfy);
+				}
+			}
+		}
+		System.out.println(satisfy);
+	}
+ 
+}
