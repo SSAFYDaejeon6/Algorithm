@@ -1,0 +1,76 @@
+/**87476kb	444ms
+ * input : 문자열 (1~ 백만)
+ * bomb : 폭발 문자열 (1~36)
+ * 알파벳 대소문자, 숫자 0~9로만 이루어짐
+ * 
+ * [원래 계획]
+ * 1. 모두 char 배열에 담기
+ * 2. 앞에서부터 input 배열과 bombArr 배열의 위치를 하나씩 비교
+ * (비교할 때 중간에 ''이 있을 수 있음 -> ''이 아닌 것을 대상으로 b_size만큼 비교
+ * 했을 때 전부 같다 => 폭발 문자열에 해당)
+ * => 큐에 담기
+ * => 큐 size만큼 꺼내면서 비교 
+ * 3. 폭발 문자열에 해당할 경우 ''가 아닌 곳들을 전부 ''로 바꾼다.
+ * 4. 폭발 문자열에 해당하지 않을 경우 중간에 break하고, 탐색을 마친 다음위치에서 탐색을 시작한다.
+ * 
+ * [정답 - 구글링]
+ * 스택 이용 -> bomb size만큼 쌓이면 비교해서 만약 같으면 모두 pop 해버리기
+ * 
+ * [배운 점]
+ * 1. 연달아서 비교가 일어나는 경우 stack을 고려해보자
+ * 2. char라고해서 꼭 배열에 넣을 필요 없고 charAt(i)이용해서 해당 위치의 char값을 비교 가능
+ * 3. stack.get(i) 사용 가능
+ * 4. flag를 이용해서 어떤 상태가 계속 유지될 경우와 아닌 경우를 나눌 수 있음
+ * */
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Queue;
+import java.util.Stack;
+import java.util.StringTokenizer;
+
+public class 문자열폭발 {
+	static char[] input, bombArr;
+	static int i_size, b_size;
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		String str = br.readLine();
+		String bomb = br.readLine();
+		
+		i_size = str.length();
+		b_size = bomb.length();
+		
+		Stack<Character> stack = new Stack<>();
+
+		for (int i=0; i<i_size; i++) {
+			stack.push(str.charAt(i));
+			if (stack.size() >= b_size) {
+				boolean flag = true;
+				
+				for (int j=0; j<b_size; j++) {
+					if (stack.get(stack.size()-b_size+j) != bomb.charAt(j)) {
+						flag = false;
+						break;
+					}
+				}
+				if (flag) {
+					for (int j=0; j<b_size; j++) {
+						stack.pop();
+					}
+ 				}
+			}
+		}
+		
+		StringBuilder st = new StringBuilder();
+		for (Character c : stack) {
+			st.append(c);
+		}
+		System.out.println(st.length()==0?"FRULA":st.toString());
+	}
+	
+	
+	
+}
