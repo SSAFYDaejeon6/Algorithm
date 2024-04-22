@@ -1,0 +1,48 @@
+package algo0420;
+/**
+ * 14164kb	228ms
+ * if (i==j) dp[i][j] = 0;
+ * if (i<j) dp[i][j] = Math.min(dp[i][k]+dp[k][j] +
+ * map[i][0]*map[k][1]*map[j][1]; 
+ * 위의 관계식을 이용해서 구함
+ * 근데 답 안 봤으면 아예 못 풀었을 것 같아요..
+ * 
+ * */
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class 행렬곱셈순서 {
+	static int N;
+	static int map[][];
+	static int dp[][];
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st;
+		N = Integer.parseInt(br.readLine());
+		map = new int[N][2];
+		dp = new int[N][N];
+		for (int i=0; i<N; i++) {
+			st = new StringTokenizer(br.readLine());
+			
+			map[i][0] = Integer.parseInt(st.nextToken());
+			map[i][1] = Integer.parseInt(st.nextToken());
+		}
+		
+		for (int gap=1; gap<N; gap++) {
+			for (int i=0; i<N-gap; i++) {
+				dp[i][i+gap] = Integer.MAX_VALUE;
+				for (int p=i; p<i+gap; p++) {
+					int val = dp[i][p] + dp[p+1][i+gap] +
+							map[i][0]*map[p][1]*map[i+gap][1];
+					dp[i][i+gap] = Math.min(dp[i][i+gap], val);
+				}
+			}
+		}
+		System.out.println(dp[0][N-1]);
+		
+		
+	}	
+
+}
