@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-// [BOJ] 5430 AC
+// [BOJ] 5430 AC 
 // 80440KB	|	580ms
 // start, end index 조정
 public class B5430 {
