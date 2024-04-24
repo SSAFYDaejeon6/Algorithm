@@ -1,130 +1,95 @@
-import java.util.Scanner;
-import java.util.StringTokenizer;
+package algo0420;
+/**
+ * 	149692kb	832ms
+ * ArrayDeque를 이용해서 R이 홀수번째로 등장하면 pollLast()를 함
+ * R이 짝수번째일 때는 poll()
+ * 
+ * 
+ * => 중간에 예외처리 잘 하고, 마지막에 형식에 맞게 출력 
+ * */
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayDeque;
- 
-public class Main {
- 
-	public static Scanner in = new Scanner(System.in);
-	public static StringBuilder sb = new StringBuilder();
-	
-	public static void main(String[] args) {
- 
-		
-		ArrayDeque<Integer> deque;
+import java.util.Deque;
+import java.util.StringTokenizer;
+
+public class ac언어 {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
 		StringTokenizer st;
-		
-		int T = in.nextInt();
-		
-		
-		
-		while(T --> 0) {
-			
-			String command = in.next();	// 문제에서 p에 해당하는 명령어
-			int n = in.nextInt();
-			
-			/*
-			 *  [a,b,c,...,x] 중 구분해야 할 것은 대괄호([, ])와 반점(,) 이다.
-			 *  StringTokenizer로 여러 구분자를 사용 하고 싶다면
-			 *  구분할 문자들을 합쳐서 넘겨주면 된다.
-			 *  
-			 *  만약 split()을 사용하고싶은 경우 정규식으로는
-			 *  String input = br.readLine();
-			 *  String[] s = input.subString(1, input.length - 1).split(","); 을 해주어야 한다.
-			 *  
-			 *  subString을 쓰지않고, split("[^0-9]") 또는, 
-			 *  split("[\\[\\]\\,") 같이 정규식으로만 쓴다면 첫 번째 인자가 정규식에 걸려
-			 *  빈 문자열을 반환하게 되기 때문
-			 *  
-			 *  ex)
-			 *  str = "[1,2,3,4]";
-			 *  strr[] = str.split("[\\[\\]\\,");
-			 *  
-			 *  result)
-			 *  strr[0] = ""
-			 *  strr[1] = "1"
-			 *  strr[2] = "2"
-			 *  strr[3] = "3"
-			 *  strr[4] = "4"
-			 */
-			st = new StringTokenizer(in.next(), "[],");
-			
-			deque = new ArrayDeque<Integer>();
-			
-			// 덱에 배열 원소를 넣어준다.
-			for(int i = 0; i < n; i++) {
-				deque.add(Integer.parseInt(st.nextToken()));
+		int T = Integer.parseInt(br.readLine());
+
+		for (int t=0; t<T; t++) {
+			//명령
+			String str = br.readLine();
+			int length = str.length();
+			char charArr[] = new char[length];
+			int dNum = 0;
+			for (int i=0; i<length; i++) {
+				char temp = str.charAt(i);
+				if (temp == 'D') dNum++;
+				charArr[i] = temp;
 			}
-			
-			AC(command, deque);
-		}
-		
-		System.out.println(sb);
-		
-	}
-	
-	public static void AC(String command, ArrayDeque<Integer> deque) {
-		
-		boolean isRight = true;	// 방향 상태 변수
-		
-		for(char cmd : command.toCharArray()) {
-			
-			if(cmd == 'R') {
-				isRight = !isRight;	// 방향을 바꿔준다.
+
+			//정수배열의 크기
+			int num = Integer.parseInt(br.readLine());
+
+
+			//정수배열
+			String input = br.readLine();
+			int size = input.length();
+			input = input.substring(1,size-1);
+			String[] arr = input.split(",");
+
+			Deque<Integer> queue = new ArrayDeque<>();
+			for (int i=0; i<num; i++) {
+				queue.add(Integer.parseInt(arr[i]));
+			}
+
+			if (dNum>num) {
+				sb.append("error\n");
 				continue;
 			}
-			
-			
-			// 아래는 D의 경우
-			
-			// D 함수이면서 isRight가 true 일 경우
-			if(isRight) {
-				
-				// 만약 반환 된 원소가 없을 경우 error를 출력하도록 하고 함수 종료
-				if(deque.pollFirst() == null) {
-					sb.append("error\n");
-					return;
+			int now = 0;
+			int dir = 0;
+			while (length-- > 0) {
+				if (charArr[now] == 'R') {
+					dir = (dir==0)?1:0;
+					now++;
+					continue;
 				}
-				
+				if (dir == 0) {
+					queue.poll();
+				} else queue.pollLast();
+				now++;
 			}
-			else {
-				// 만약 반환 된 원소가 없을 경우 error를 출력하도록 하고 함수 종료
-				if(deque.pollLast() == null) {
-					sb.append("error\n");
-					return;
-				}	
+
+			int tempQSize = queue.size();
+			if (dir == 0) {
+				sb.append("[");
+				while(tempQSize-- > 0) {
+					if (tempQSize == 0) {
+						sb.append(queue.poll());
+						break;
+					}
+					sb.append(queue.poll()+",");
+				}
+				sb.append("]\n");
+			} else {
+				sb.append("[");
+				while(tempQSize-- > 0) {
+					if (tempQSize == 0) {
+						sb.append(queue.pollLast());
+						break;
+					}
+					sb.append(queue.pollLast()+",");
+				}
+				sb.append("]\n");
 			}
 		}
-		
-		// 모든 함수들이 정상적으로 작동했다면 덱의 남은 요소들을 출력문으로 만들어준다.
-		makePrintString(deque, isRight);
-		
-	}
-	
-	public static void makePrintString(ArrayDeque<Integer> deque, boolean isRight) {
-		
-		sb.append('[');	// 여는 대괄호 먼저 StringBuilder에 저장
-		
-		if(deque.size() > 0) {	//만약 출력 할 원소가 한 개 이상일 경우
-			
-			if(isRight) {	// 정방향일경우 
-				
-				sb.append(deque.pollFirst());	// 먼저 첫 번째 원소를 넘겨준다.
-				
-				// 그 다음 원소부터 반점을 먼저 넘겨준 후 덱의 원소를 하나씩 뽑아 넘긴다. 
-				while(!deque.isEmpty()) {
-					sb.append(',').append(deque.pollFirst());
-				}
-			}
-			else {	// 역방향일경우 
-				sb.append(deque.pollLast());	// 먼저 뒤에서부터 첫 번째 원소를 넘겨준다.
-				
-				// 그 다음 원소부터 반점을 먼저 넘겨준 후 덱의 원소를 뒤에서부터 하나씩 뽑아 넘긴다. 
-				while(!deque.isEmpty()) {
-					sb.append(',').append(deque.pollLast());
-				}
-			}
-		}
-		
-		sb.append(']').append('\n');	// 닫는 대괄호 및 개행으로 마무리
+		System.out.println(sb);
 	}
 }
