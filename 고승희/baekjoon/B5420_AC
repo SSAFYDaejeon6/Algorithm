@@ -1,0 +1,95 @@
+package algo0420;
+/**
+ * 	149692kb	832ms
+ * ArrayDeque를 이용해서 R이 홀수번째로 등장하면 pollLast()를 함
+ * R이 짝수번째일 때는 poll()
+ * 
+ * 
+ * => 중간에 예외처리 잘 하고, 마지막에 형식에 맞게 출력 
+ * */
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.StringTokenizer;
+
+public class ac언어 {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		StringTokenizer st;
+		int T = Integer.parseInt(br.readLine());
+
+		for (int t=0; t<T; t++) {
+			//명령
+			String str = br.readLine();
+			int length = str.length();
+			char charArr[] = new char[length];
+			int dNum = 0;
+			for (int i=0; i<length; i++) {
+				char temp = str.charAt(i);
+				if (temp == 'D') dNum++;
+				charArr[i] = temp;
+			}
+
+			//정수배열의 크기
+			int num = Integer.parseInt(br.readLine());
+
+
+			//정수배열
+			String input = br.readLine();
+			int size = input.length();
+			input = input.substring(1,size-1);
+			String[] arr = input.split(",");
+
+			Deque<Integer> queue = new ArrayDeque<>();
+			for (int i=0; i<num; i++) {
+				queue.add(Integer.parseInt(arr[i]));
+			}
+
+			if (dNum>num) {
+				sb.append("error\n");
+				continue;
+			}
+			int now = 0;
+			int dir = 0;
+			while (length-- > 0) {
+				if (charArr[now] == 'R') {
+					dir = (dir==0)?1:0;
+					now++;
+					continue;
+				}
+				if (dir == 0) {
+					queue.poll();
+				} else queue.pollLast();
+				now++;
+			}
+
+			int tempQSize = queue.size();
+			if (dir == 0) {
+				sb.append("[");
+				while(tempQSize-- > 0) {
+					if (tempQSize == 0) {
+						sb.append(queue.poll());
+						break;
+					}
+					sb.append(queue.poll()+",");
+				}
+				sb.append("]\n");
+			} else {
+				sb.append("[");
+				while(tempQSize-- > 0) {
+					if (tempQSize == 0) {
+						sb.append(queue.pollLast());
+						break;
+					}
+					sb.append(queue.pollLast()+",");
+				}
+				sb.append("]\n");
+			}
+		}
+		System.out.println(sb);
+	}
+}
