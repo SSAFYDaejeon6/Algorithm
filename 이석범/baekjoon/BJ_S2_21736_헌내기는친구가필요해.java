@@ -8,7 +8,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 //25876KB 284ms
-public class BJ_S2_21736_Çå³»±â´ÂÄ£±¸°¡ÇÊ¿äÇØ {
+public class BJ_S2_21736_Ã‡Ã¥Â³Â»Â±Ã¢Â´Ã‚Ã„Â£Â±Â¸Â°Â¡Ã‡ÃŠÂ¿Ã¤Ã‡Ã˜ {
 
 	static int R, C;
 	static char[][] graph;
@@ -19,6 +19,7 @@ public class BJ_S2_21736_Çå³»±â´ÂÄ£±¸°¡ÇÊ¿äÇØ {
 	static int[] dr = {-1, 1, 0, 0};
 	static int[] dc = {0, 0, -1, 1};
 
+	//BFSë¡œ xì´ê±°ë‚˜ ê²½ê³„ ë„˜ì–´ê°€ê±°ë‚˜ í•˜ê¸° ì „ê¹Œì§€ Pë§Œë‚˜ë©´ cnt+1
 	static void BFS() {
 		Queue<Node> queue = new ArrayDeque<>();
 		queue.offer(new Node(startR, startC));
