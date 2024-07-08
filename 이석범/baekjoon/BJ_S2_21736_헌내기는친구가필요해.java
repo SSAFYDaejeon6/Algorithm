@@ -8,7 +8,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 //25876KB 284ms
-public class BJ_S2_21736_Çå³»±â´ÂÄ£±¸°¡ÇÊ¿äÇØ {
+public class BJ_S2_21736_헌내기는친구가필요해 {
 
 	static int R, C;
 	static char[][] graph;
